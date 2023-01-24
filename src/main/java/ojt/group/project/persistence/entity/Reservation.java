@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -78,6 +81,7 @@ public class Reservation implements Serializable{
      *departtime
      *</p> 
      */
+    @DateTimeFormat(iso=ISO.DATE)
     @Column(name="depart_time")
     private Date departtime;
     
@@ -87,6 +91,7 @@ public class Reservation implements Serializable{
      *reservationdate
      *</p> 
      */
+    @DateTimeFormat(iso=ISO.DATE)
     @Column(name="reservation_date")
     private Date reservationdate;
     
@@ -114,6 +119,7 @@ public class Reservation implements Serializable{
      *createdat
      *</p> 
      */
+    @DateTimeFormat(iso=ISO.DATE)
     @Column(name="created_at")
     private Date createdat;
     
@@ -123,6 +129,7 @@ public class Reservation implements Serializable{
      *updateat
      *</p> 
      */
+    @DateTimeFormat(iso=ISO.DATE)
     @Column(name="update_at")
     private Date updateat;
     
@@ -133,5 +140,5 @@ public class Reservation implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;
+    private Boolean delflag;
 }

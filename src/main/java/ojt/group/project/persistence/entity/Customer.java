@@ -88,7 +88,7 @@ public class Customer implements Serializable{
      *</p> 
      */
     @Column(name="ph_no")
-    private Integer phno;
+    private String phno;
     
     /**
      *<h2>email</h2>
@@ -124,5 +124,5 @@ public class Customer implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;
+    private Boolean delflag;
 }
