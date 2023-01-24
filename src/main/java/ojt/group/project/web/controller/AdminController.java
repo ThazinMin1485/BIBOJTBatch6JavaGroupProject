@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
@@ -53,6 +54,14 @@ public class AdminController {
 	public String deleteReservationById(@PathVariable(value="reservation_id") int id,Model m) {
 		service.deleteReservationById(id);
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = { "/adminPassenger" })
+	public ModelAndView viewPassenger() {
+		ModelAndView report=new ModelAndView("adminPassenger");
+		List<CustomerDto> cusList=service.getCustomerList();
+		report.addObject("customer", cusList);
+		return report;
 	}
 	
 }

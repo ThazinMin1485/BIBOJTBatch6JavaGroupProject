@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ojt.group.project.persistence.dao.ReservationDao;
+import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Reservation;
 import ojt.group.project.persistence.entity.TransactionReport;
 
@@ -65,6 +66,14 @@ public class ReservationDaoImpl implements ReservationDao {
 	public List<TransactionReport> getAllReportList() {
 		String userQuery = "SELECT r FROM TransactionReport r where r.delflag=0";
 		Query<TransactionReport> query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Customer> getCustomerList() {
+		String userQuery = "SELECT c FROM Customer c where c.delflag=0";
+		Query<Customer> query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
 		return query.getResultList();
 	}
 

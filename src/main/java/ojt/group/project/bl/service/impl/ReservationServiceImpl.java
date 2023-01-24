@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.persistence.dao.ReservationDao;
+import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Reservation;
 import ojt.group.project.persistence.entity.TransactionReport;
 import ojt.group.project.web.form.ReservationForm;
@@ -129,6 +131,28 @@ public class ReservationServiceImpl implements ReservationService {
 			reportList.add(dto);
 		}
 		return reportList;
+	}
+
+	@Override
+	public List<CustomerDto> getCustomerList() {
+		List<Customer> cus=resDao.getCustomerList();
+		List<CustomerDto> cusList=new ArrayList<CustomerDto>();
+		for(Customer cust:cus) {
+			CustomerDto cusD=new CustomerDto(cust);
+			cusD.setCustomerid(cust.getCustomerid());
+			cusD.setAddress(cust.getAddress());
+			cusD.setAge(cust.getAge());
+			cusD.setCreatedat(cust.getCreatedat());
+			cusD.setCustomername(cust.getCustomername());
+			cusD.setDelflag(cust.getDelflag());
+			cusD.setEmail(cust.getEmail());
+			cusD.setGender(cust.getGender());
+			cusD.setNrc(cust.getNrc());
+			cusD.setPhno(cust.getPhno());
+			cusD.setUpdateat(cust.getUpdateat());
+			cusList.add(cusD);
+		}
+		return cusList;
 	}
 
 	
