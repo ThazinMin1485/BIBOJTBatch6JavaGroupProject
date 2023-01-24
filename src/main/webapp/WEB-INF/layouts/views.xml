@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+    "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="home" extends="template">
+		<put-attribute name="title" value="Reservation List"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/pages/home.jsp"></put-attribute>
+	</definition>
+	<definition name="adminPassenger" extends="template">
+		<put-attribute name="title" value="Passenger List" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/adminPassenger.jsp" />
+	</definition>
+	<definition name="editReservation" extends="template">
+		<put-attribute name="title" value="Edit - Reservation" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/editReservation.jsp" />
+	</definition>
+</tiles-definitions>
