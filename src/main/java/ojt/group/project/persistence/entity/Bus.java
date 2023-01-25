@@ -55,15 +55,6 @@ public class Bus implements Serializable{
     private String busstatus;
     
     /**
-     *<h2>busseats</h2>
-     *<p>
-     *busseats
-     *</p> 
-     */
-    @Column(name="bus_seats")
-    private String busseats;
-    
-    /**
      *<h2>driverid</h2>
      *<p>
      *driverid
@@ -73,15 +64,6 @@ public class Bus implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="driver_id")
     private Integer driverid;
-    
-    /**
-     *<h2>destinationlocation</h2>
-     *<p>
-     *destinationlocation
-     *</p> 
-     */
-    @Column(name="destination_location")
-    private String destinationlocation;
     
     /**
      *<h2>createdat</h2>
