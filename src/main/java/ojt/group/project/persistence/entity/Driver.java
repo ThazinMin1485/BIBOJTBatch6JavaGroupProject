@@ -60,7 +60,7 @@ public class Driver implements Serializable{
      *phno
      *</p> 
      */
-    @Column(name="ph_no")
+    @Column(name="phno")
     private Integer phno;
     
     /**

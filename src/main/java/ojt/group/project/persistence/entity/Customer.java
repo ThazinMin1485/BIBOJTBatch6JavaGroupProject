@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import ojt.group.project.crud.web.form.CreateCusForm;
 
 @Getter
 @Setter
@@ -43,7 +44,7 @@ public class Customer implements Serializable{
      *</p> 
      */
     @Column(name="customer_name")
-    private String customername;
+    private String userName;
     
     /**
      *<h2>gender</h2>
@@ -87,8 +88,8 @@ public class Customer implements Serializable{
      *phno
      *</p> 
      */
-    @Column(name="ph_no")
-    private Integer phno;
+    @Column(name="phno")
+    private String phno;
     
     /**
      *<h2>email</h2>
@@ -98,6 +99,25 @@ public class Customer implements Serializable{
      */
     @Column(name="email")
     private String email;
+    
+    
+    /**
+     *<h2>password</h2>
+     *<p>
+     *password
+     *</p> 
+     */
+    @Column(name="password")
+    private String password;
+    
+    /**
+     *<h2>confirmpassword</h2>
+     *<p>
+     *confirmpassword
+     *</p> 
+     */
+    @Column(name="confirmpassword")
+    private String confirmpassword;
     
     /**
      *<h2>createdat</h2>
@@ -125,4 +145,21 @@ public class Customer implements Serializable{
      */
     @Column(name="del_flag")
     private Date delflag;
+    
+    public Customer() {
+        super();
+    }
+    
+    public Customer(CreateCusForm cusForm) {
+        this.customerid=cusForm.getCustomerid();
+        this.userName=cusForm.getUserName();
+        this.gender=cusForm.getGender();
+        this.age=cusForm.getAge();
+        this.nrc=cusForm.getNrc();
+        this.address=cusForm.getAddress();
+        this.phno=cusForm.getPhno();
+        this.email=cusForm.getEmail();
+        this.password=cusForm.getPassword();
+        this.confirmpassword=cusForm.getConfirmpassword();
+    }
 }

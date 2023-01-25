@@ -1,0 +1,42 @@
+@charset "UTF-8";
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+label{
+  color: #6A6C89;
+  font-size: 20px;
+}
+
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.container{
+  padding: 50px 0px;
+}
+h1{
+  color: #003081;
+  margin-left: 25%;
+  font-size: 44px;
+}
+.bus-booking{
+  margin: 0 auto;
+  padding: 40px 50px;
+  margin: 0px 22%;
+  background-color: rgb(255,255,255,.5);
+}
+.search{
+  color: #ffffff;
+  background-color: #484C8D;
+  padding: 5px 30px;
+  border-color: transparent;
+}
+input{
+  padding: 5px 40px;
+  border-color: transparent;
+}

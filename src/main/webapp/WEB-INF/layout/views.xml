@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+    "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="login" extends="template">  
+        <put-attribute name="title" value="Login" />  
+        <put-attribute name="body" value="/WEB-INF/pages/login.jsp" />  
+    </definition>
+    
+    <definition name="register" extends="template"> 
+        <put-attribute name="title" value="register" />  
+        <put-attribute name="body" value="/WEB-INF/pages/register.jsp" />  
+    </definition>
+    
+    <definition name="bookingbusticket" extends="template"> 
+        <put-attribute name="title" value="bookingbusticket" />  
+        <put-attribute name="body" value="/WEB-INF/pages/bookingbusticket.jsp" />  
+    </definition>
+    
+    <definition name="contactus" extends="template"> 
+        <put-attribute name="title" value="contactus" />  
+        <put-attribute name="body" value="/WEB-INF/pages/contactus.jsp" />  
+    </definition>
+    
+</tiles-definitions>
