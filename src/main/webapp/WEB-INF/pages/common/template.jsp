@@ -8,15 +8,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title><tiles:insertAttribute name="title"></tiles:insertAttribute></title>
-<s:url var="url_jqlib" value="/resources/js/jquery-3.6.0.min.js" />
-<s:url var="url_jblib" value="/resources/js/bootstrap.min.js" />
-<script src="${url_jqlib}"></script>
-<script src="${url_jblib}"></script>
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/bootstrap.min.css" />"
-	type="text/css" />
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<script src="<c:url value="/resources/js/jquery-3.6.0.min.js" />"></script>
 <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/js/common.js" />"></script>
 
 </head>

@@ -10,13 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ojt.group.project.bl.dto.BusDestinationDto;
+import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
+import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.persistence.dao.ReservationDao;
+import ojt.group.project.persistence.entity.Bus;
+import ojt.group.project.persistence.entity.BusDestination;
 import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Reservation;
+import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
 import ojt.group.project.web.form.ReservationForm;
 
@@ -155,5 +161,68 @@ public class ReservationServiceImpl implements ReservationService {
 		return cusList;
 	}
 
+	@Override
+	public List<BusDto> getBusList() {
+		List<Bus> bus=resDao.getBusList();
+		List<BusDto> busList=new ArrayList<BusDto>();
+		for(Bus b:bus) {
+			BusDto bD=new BusDto(b);
+			bD.setBusId(b.getBusId());
+			bD.setBusno(b.getBusno());
+			bD.setBusseats(b.getBusseats());
+			bD.setBusstatus(b.getBusstatus());
+			bD.setCreatedat(b.getCreatedat());
+			bD.setDelflag(b.getDelflag());
+			bD.setDriverid(b.getDriverid());
+			bD.setUpdateat(b.getUpdateat());
+			busList.add(bD);
+		}
+		return busList;
+	}
+
+	@Override
+	public List<SeatDto> getSeatByBusId(int busid) {
+		List<Seat> seat=resDao.getSeatByBusId(busid);
+		List<SeatDto> sList=new ArrayList<SeatDto>();
+		for(Seat s:seat) {
+			SeatDto sd=new SeatDto(s);
+			sd.setBusid(s.getBusid());
+			sd.setBusno(s.getBusno());
+			sd.setCreatedat(s.getCreatedat());
+			sd.setDelflag(s.getDelflag());
+			sd.setSeatid(s.getSeatid());
+			sd.setSeatno(s.getSeatno());
+			sd.setUpdateat(s.getUpdateat());
+			sList.add(sd);
+		}
+		return sList;
+	}
+
+	@Override
+	public BusDto getBusById(int busId) {
+
+		Bus b=resDao.getBusById(busId);
+		BusDto bs=new BusDto(b);
+		return bs;
+	}
+
+	@Override
+	public List<BusDestinationDto> getBusDestinationBusId(int busid) {
+		List<BusDestination> dest=resDao.getDestinationByBusId(busid);
+		List<BusDestinationDto> destList=new ArrayList<BusDestinationDto>();
+		for(BusDestination d:dest) {
+			BusDestinationDto ds=new BusDestinationDto(d);
+			ds.setDestinationid(d.getDestinationid());
+			ds.setBusid(d.getBusid());
+			ds.setDepartlocation(d.getDepartlocation());
+			ds.setDeparttime(settoString(d.getDeparttime()));
+			ds.setDestinationlocation(d.getDestinationlocation());
+			ds.setUnitprice(d.getUnitprice());
+			destList.add(ds);
+		}
+		return destList;
+	}
+
+	
 	
 }

@@ -10,8 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ojt.group.project.persistence.dao.ReservationDao;
+import ojt.group.project.persistence.entity.Bus;
+import ojt.group.project.persistence.entity.BusDestination;
 import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Reservation;
+import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
 
 @Repository
@@ -74,6 +77,42 @@ public class ReservationDaoImpl implements ReservationDao {
 	public List<Customer> getCustomerList() {
 		String userQuery = "SELECT c FROM Customer c where c.delflag=0";
 		Query<Customer> query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Bus> getBusList() {
+		String userQuery = "SELECT b FROM Bus b where b.delflag=0";
+		Query<Bus> query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Bus getBusById(int busId) {
+		String q = "SELECT b FROM Bus b WHERE b.busId=:busId";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("busId", busId);
+		Bus b = (Bus) query.uniqueResult();
+		return b;
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<Seat> getSeatByBusId(int busid) {
+		String q = "SELECT s from Seat s WHERE s.busid=:busid";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("busid", busid);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<BusDestination> getDestinationByBusId(int busid) {
+		String q = "SELECT b from BusDestination b WHERE b.busid=:busid";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("busid", busid);
 		return query.getResultList();
 	}
 

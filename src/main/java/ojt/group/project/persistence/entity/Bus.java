@@ -69,19 +69,8 @@ public class Bus implements Serializable{
      *driverid
      *</p> 
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="driver_id")
     private Integer driverid;
-    
-    /**
-     *<h2>destinationlocation</h2>
-     *<p>
-     *destinationlocation
-     *</p> 
-     */
-    @Column(name="destination_location")
-    private String destinationlocation;
     
     /**
      *<h2>createdat</h2>

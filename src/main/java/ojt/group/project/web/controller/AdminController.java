@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ojt.group.project.bl.dto.BusDestinationDto;
+import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
+import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.web.form.ReservationForm;
@@ -64,4 +67,23 @@ public class AdminController {
 		return report;
 	}
 	
+	@RequestMapping(value = { "/busRoute" })
+	public ModelAndView viewBusRoute() {
+		ModelAndView report=new ModelAndView("busRoute");
+		List<BusDto> busList=service.getBusList();
+		report.addObject("bus", busList);
+		return report;
+	}
+	
+	@GetMapping("/selectBus/{busId}")
+	public String bookingPage(@PathVariable(value="busId") int busId,Model m) {
+		BusDto bd=service.getBusById(busId);
+		List<SeatDto> st=service.getSeatByBusId(busId);
+		List<BusDestinationDto> des=service.getBusDestinationBusId(busId);
+		m.addAttribute("bus", bd);
+		m.addAttribute("seat", st);
+		m.addAttribute("destination", des);
+		return "booking";
+		
+	}
 }

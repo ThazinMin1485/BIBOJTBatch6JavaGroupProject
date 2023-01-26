@@ -2,8 +2,11 @@ package ojt.group.project.persistence.dao;
 
 import java.util.List;
 
+import ojt.group.project.persistence.entity.Bus;
+import ojt.group.project.persistence.entity.BusDestination;
 import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Reservation;
+import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
 
 public interface ReservationDao {
@@ -22,4 +25,11 @@ public interface ReservationDao {
 	
 	public List<Customer> getCustomerList();
 	
+	public List<Bus> getBusList();
+	
+	public Bus getBusById(int busId);
+	
+	public List<Seat> getSeatByBusId(int busid);
+	
+	public List<BusDestination> getDestinationByBusId(int busid);
 }
