@@ -25,7 +25,7 @@ public class CreateCusForm {
     @NotEmpty
     @Size(min=5,max=50)
     private String address;
-    private String phno;
+    private String ph_no;
     @NotEmpty
     private String email;
     @NotEmpty
@@ -40,7 +40,7 @@ public class CreateCusForm {
         this.age=cus.getAge();
         this.nrc=cus.getNrc();
         this.address=cus.getAddress();
-        this.phno=cus.getPhno();
+        this.ph_no=cus.getPh_no();
         this.email=cus.getEmail();
         this.password=cus.getPassword();
         this.confirmpassword=cus.getConfirmpassword();

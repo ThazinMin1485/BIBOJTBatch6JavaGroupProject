@@ -89,7 +89,7 @@ public class Customer implements Serializable{
      *</p> 
      */
     @Column(name="ph_no")
-    private String phno;
+    private String ph_no;
     
     /**
      *<h2>email</h2>
@@ -157,7 +157,7 @@ public class Customer implements Serializable{
         this.age=cusForm.getAge();
         this.nrc=cusForm.getNrc();
         this.address=cusForm.getAddress();
-        this.phno=cusForm.getPhno();
+        this.ph_no=cusForm.getPh_no();
         this.email=cusForm.getEmail();
         this.password=cusForm.getPassword();
         this.confirmpassword=cusForm.getConfirmpassword();

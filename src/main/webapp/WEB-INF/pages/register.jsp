@@ -10,11 +10,6 @@
 <meta charset="UTF-8">
 <link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>' />
 <title>Register</title>
-<style>
-body{
-  background-size: cover;
-}
-</style>
 </head>
 <body background="${pageContext.request.contextPath}/resources/image/bus1_img.jpg">
 <div class="register">
@@ -48,9 +43,9 @@ body{
   
     </div>
     <div class="right">
-        <form:label path="phno">Phone Number</form:label><br><br>
-        <form:input type="phno" path="phno" placeholder="Phone Number"/><br>
-        <form:errors path="age" class="error" />
+        <form:label path="ph_no">Phone Number</form:label><br><br>
+        <form:input type="ph_no" path="ph_no" placeholder="Phone Number"/><br>
+        <form:errors path="ph_no" class="error" />
 <br><br>   
 
         <form:label path="email">Email</form:label><br><br>

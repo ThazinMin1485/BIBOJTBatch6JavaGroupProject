@@ -44,7 +44,7 @@
             <td>${cus.age}</td>
             <td>${cus.nrc}</td>
             <td>${cus.address}</td>
-            <td>${cus.phno}</td>
+            <td>${cus.ph_no}</td>
             <td>${cus.email}</td>
           </tr>
         </c:forEach>

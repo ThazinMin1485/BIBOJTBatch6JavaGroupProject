@@ -4,20 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.service.CustomerService;
 import ojt.group.project.crud.web.form.BookingBusticketForm;
-import ojt.group.project.crud.web.form.BusForm;
 import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.crud.web.form.RegisterForm;
 import ojt.group.project.persistence.dao.CustomerDao;
-import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Login;
 
@@ -26,12 +22,10 @@ import ojt.group.project.persistence.entity.Login;
 public class CustomerServiceImpl  implements CustomerService{
     @Autowired
     private CustomerDao customerDao;
+    
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-
-    @Autowired
-    private MessageSource messageSource;
     
  // add employee
     @Override
@@ -42,7 +36,7 @@ public class CustomerServiceImpl  implements CustomerService{
         cus.setAge(regForm.getAge());
         cus.setNrc(regForm.getNrc());
         cus.setAddress(regForm.getAddress());
-        cus.setPhno(regForm.getPhno());
+        cus.setPh_no(regForm.getPh_no());
         cus.setEmail(regForm.getEmail());
         cus.setPassword(passwordEncoder.encode(regForm.getPassword()));
         customerDao.addCustomer(cus);
@@ -61,7 +55,7 @@ public class CustomerServiceImpl  implements CustomerService{
             cusDto.setAge(cus.getAge());
             cusDto.setNrc(cus.getNrc());
             cusDto.setAddress(cus.getAddress());
-            cusDto.setPhno(cus.getPhno());
+            cusDto.setPh_no(cus.getPh_no());
             cusDto.setEmail(cus.getEmail());
             customer.add(cusDto);
         }
@@ -96,25 +90,5 @@ public class CustomerServiceImpl  implements CustomerService{
         bookingbusticket.setAge(bookingbusticketForm.getAge()); 
     }
     
-    //add bus
-    @Override
-    public void addBus(BusForm busForm) {
-        Bus bus=new Bus();
-        bus.setBusno(busForm.getBusno());
-        bus.setBusstatus(busForm.getBusstatus());
-        bus.setDriverid(busForm.getDriverid());
-    }
-    public List<BusDto> getAllBus(){
- List<Bus> allBus = customerDao.getAllBus();
-        
-        List<BusDto> bus = new ArrayList<BusDto>();
-        for (Bus b : allBus) {
-            BusDto bDto = new BusDto(b);
-            bDto.setBusid(b.getBusId());
-            bDto.setBusno(b.getBusno());
-            bDto.setBusstatus(b.getBusstatus());
-        }
-        return bus;
-    }
-        
+    
     }

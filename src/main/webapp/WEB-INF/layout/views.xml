@@ -24,4 +24,9 @@
         <put-attribute name="body" value="/WEB-INF/pages/contactus.jsp" />  
     </definition>
     
+    <definition name="bus" extends="template"> 
+        <put-attribute name="title" value="bus" />  
+        <put-attribute name="body" value="/WEB-INF/pages/bus.jsp" />  
+    </definition>
+    
 </tiles-definitions>

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import ojt.group.project.crud.web.form.BookingBusticketForm;
 import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.persistence.dao.CustomerDao;
-import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.Customer;
 
 @Repository
@@ -50,16 +49,6 @@ public class CustomerDaoImpl implements CustomerDao{
     
     public void bookingbusticket(BookingBusticketForm bookingbusticketForm) {
         sessionFactory.getCurrentSession().save(bookingbusticketForm);
-    }
-    
-    @Override
-    public void addBus(Bus bus) {
-        sessionFactory.getCurrentSession().save(bus);
-    }
-    
-    @Override
-    public List<Bus> getAllBus(){
-        return hiberneteTemplate.loadAll(Bus.class);
     }
 }
 

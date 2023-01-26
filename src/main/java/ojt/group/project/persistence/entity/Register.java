@@ -12,7 +12,7 @@ public class Register {
     private Integer age;
     private String nrc;
     private String address;
-    private String phno;
+    private String ph_no;
     private String email;
     private String password;
     private String confirmpassword;

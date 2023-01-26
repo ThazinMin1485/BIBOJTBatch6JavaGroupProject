@@ -177,3 +177,17 @@ table{
       background-repeat: no-repeat;
       background-size: cover;
   }
+  
+.bus{
+  margin-left: 30%;
+  }
+  
+  /* seat */
+.seat-head,
+.bus-head{
+	color: #FAD7A0;
+	font-size: 40px;
+	font-weight: 700;
+	text-align: center;
+}
+  

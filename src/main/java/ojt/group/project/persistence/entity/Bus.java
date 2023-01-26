@@ -12,13 +12,14 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import ojt.group.project.crud.web.form.BusForm;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "bus")
 public class Bus implements Serializable{
-    /**
+	/**
      *<h2>serialVersionUID</h2>
      *<p>
      *serialVersionUID
@@ -34,7 +35,7 @@ public class Bus implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bus_id")
-    private Integer busId;
+    private Integer busid;
     
     /**
      *<h2>busno</h2>
@@ -55,13 +56,20 @@ public class Bus implements Serializable{
     private String busstatus;
     
     /**
+     *<h2>busseats</h2>
+     *<p>
+     *busseats
+     *</p> 
+     */
+    @Column(name="bus_seats")
+    private String busseats;
+    
+    /**
      *<h2>driverid</h2>
      *<p>
      *driverid
      *</p> 
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="driver_id")
     private Integer driverid;
     
@@ -91,4 +99,17 @@ public class Bus implements Serializable{
      */
     @Column(name="del_flag")
     private Date delflag;   
+    
+    
+    public Bus() {
+        super();
+    }
+    
+    public Bus(BusForm busForm) {
+        this.busid=busForm.getBusid();
+        this.busno=busForm.getBusno();
+        this.busstatus=busForm.getBusstatus();
+        this.busseats=busForm.getBusseats();
+        this.driverid=busForm.getDriverid();
+    }
 }

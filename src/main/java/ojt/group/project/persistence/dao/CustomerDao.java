@@ -4,7 +4,6 @@ import java.util.List;
 
 import ojt.group.project.crud.web.form.BookingBusticketForm;
 import ojt.group.project.crud.web.form.LoginForm;
-import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.Customer;
 public interface CustomerDao {
  // add customer
@@ -22,9 +21,5 @@ public interface CustomerDao {
     //Booking Bus Ticket
     public void bookingbusticket(BookingBusticketForm bookingbusticketForm);
     
-    //add bus
-    public void addBus(Bus bus);
     
-    //get all Bus
-    public List<Bus> getAllBus();
 }

@@ -29,7 +29,7 @@ public class RegisterForm {
     @Size(min=5,max=50)
     private String address;
     @NotEmpty
-    private String phno;
+    private String ph_no;
     @NotEmpty
     @Email
     private String email;
@@ -47,7 +47,7 @@ public class RegisterForm {
         this.age=cus.getAge();
         this.nrc=cus.getNrc();
         this.address=cus.getAddress();
-        this.phno=cus.getPhno();
+        this.ph_no=cus.getPh_no();
         this.email=cus.getEmail();
         this.password=cus.getPassword();
         this.confirmpassword=cus.getConfirmpassword();

@@ -12,7 +12,7 @@ public class CustomerDto {
     private Integer age;
     private String nrc;
     private String address;
-    private String phno;
+    private String ph_no;
     private String email;
     private String password;
     private String confirmpassword;
@@ -27,7 +27,7 @@ public class CustomerDto {
         this.age=cus.getAge();
         this.nrc=cus.getNrc();
         this.address=cus.getAddress();
-        this.phno=cus.getPhno();
+        this.ph_no=cus.getPh_no();
         this.email=cus.getEmail();
         this.password=cus.getPassword();
         this.confirmpassword=cus.getConfirmpassword();

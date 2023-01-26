@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ojt.group.project.crud.web.form.BookingBusticketForm;
-import ojt.group.project.crud.web.form.BusForm;
 import ojt.group.project.crud.web.form.ContactUsForm;
 import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.crud.web.form.RegisterForm;
+import ojt.group.project.crud.web.form.SeatForm;
 
 @Controller
 public class HomeController {
@@ -49,13 +49,4 @@ public class HomeController {
         view.addObject("bookingbusticket",bookingbusticketForm);
         return view;
     }
-    
-    @RequestMapping("/bus")
-    public ModelAndView viewBus() {
-        ModelAndView view=new ModelAndView("bus");
-        BusForm busForm =new BusForm();
-        view.addObject("bus",busForm);
-        return view;
-    }
-   
 }

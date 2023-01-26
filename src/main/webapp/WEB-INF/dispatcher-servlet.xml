@@ -89,6 +89,7 @@
             <list>
                 <value>ojt.group.project.persistence.entity.Customer</value>
                 <value>ojt.group.project.persistence.entity.Bus</value>
+                <value>ojt.group.project.persistence.entity.Seat</value>
             </list>
         </property>
         
