@@ -17,3 +17,7 @@
 	float: left;
 	margin-right: 30px;
 }
+
+.bookingPage .booking .column.destination-column{
+	margin-top:150px;
+}
