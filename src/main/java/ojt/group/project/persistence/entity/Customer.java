@@ -14,6 +14,15 @@ import lombok.Getter;
 import lombok.Setter;
 import ojt.group.project.crud.web.form.CreateCusForm;
 
+/**
+ * <h2> Customer Class</h2>
+ * <p>
+ * Process for Displaying Customer
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity
@@ -144,12 +153,25 @@ public class Customer implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;
+    private Boolean delflag;
     
+    /**
+     * <h2> Constructor for Customer </h2>
+     * <p>
+     * Constructor for Customer
+     * </p>
+     */
     public Customer() {
         super();
     }
     
+    /**
+     * <h2> Constructor for Customer </h2>
+     * <p>
+     * Constructor for Customer
+     * </p>
+     * @param cusForm
+     */
     public Customer(CreateCusForm cusForm) {
         this.customerid=cusForm.getCustomerid();
         this.userName=cusForm.getUserName();

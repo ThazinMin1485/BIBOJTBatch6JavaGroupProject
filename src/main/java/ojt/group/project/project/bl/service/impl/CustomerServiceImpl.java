@@ -1,6 +1,7 @@
 package ojt.group.project.project.bl.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,24 +11,51 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.service.CustomerService;
-import ojt.group.project.crud.web.form.BookingBusticketForm;
 import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.crud.web.form.RegisterForm;
 import ojt.group.project.persistence.dao.CustomerDao;
 import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Login;
 
+/**
+ * <h2> CustomerServiceImpl Class</h2>
+ * <p>
+ * Process for Displaying CustomerServiceImpl
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Transactional
 @Service
 public class CustomerServiceImpl  implements CustomerService{
+    /**
+     * <h2> customerDao</h2>
+     * <p>
+     * customerDao
+     * </p>
+     */
     @Autowired
     private CustomerDao customerDao;
     
 
+    /**
+     * <h2> passwordEncoder</h2>
+     * <p>
+     * passwordEncoder
+     * </p>
+     */
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
     
- // add employee
+    /**
+     * <h2> addCus </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param regForm
+     */
     @Override
     public void addCus(RegisterForm regForm) {
         Customer cus=new Customer();
@@ -39,9 +67,18 @@ public class CustomerServiceImpl  implements CustomerService{
         cus.setPh_no(regForm.getPh_no());
         cus.setEmail(regForm.getEmail());
         cus.setPassword(passwordEncoder.encode(regForm.getPassword()));
+        cus.setCreatedat(new Date());
         customerDao.addCustomer(cus);
     }
     
+    /**
+     * <h2> getAllCus </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @return
+     */
     @Override
     public List<CustomerDto> getAllCus() {
  List<Customer> allCus = customerDao.getAllCus();
@@ -61,9 +98,16 @@ public class CustomerServiceImpl  implements CustomerService{
         }
         return customer;
     }
-    
- // get customer by email
 
+    /**
+     * <h2> findByEmail </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param email
+     * @return
+     */
     public CustomerDto findByEmail(String email) {
         Customer cus = customerDao.findByEmail(email);
 
@@ -73,22 +117,19 @@ public class CustomerServiceImpl  implements CustomerService{
         CustomerDto customerdto = new CustomerDto(cus);
         return customerdto;
     }
-    
-    //Login
+
+    /**
+     * <h2> login </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param loginForm
+     */
     public void login(LoginForm loginForm) {
      Login login=new Login();
      login.setEmail(loginForm.getEmail());
      login.setPassword(passwordEncoder.encode(loginForm.getPassword()));
  }
-    
-    //booking bus ticket
-    public void bookingbusticket(BookingBusticketForm bookingbusticketForm) {
-        BookingBusticketForm bookingbusticket=new BookingBusticketForm();
-        bookingbusticket.setFrom(bookingbusticketForm.getFrom()); 
-        bookingbusticket.setTo(bookingbusticketForm.getTo());
-        bookingbusticket.setDeparture_date(bookingbusticketForm.getDeparture_date());
-        bookingbusticket.setAge(bookingbusticketForm.getAge()); 
-    }
-    
-    
+     
     }

@@ -13,6 +13,15 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * <h2> Seat Class</h2>
+ * <p>
+ * Process for Displaying Seat
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity

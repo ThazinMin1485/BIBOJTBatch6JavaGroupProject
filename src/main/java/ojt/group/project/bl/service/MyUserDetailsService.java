@@ -15,12 +15,37 @@ import org.springframework.stereotype.Service;
 import ojt.group.project.bl.dto.CustomerDto;
 
 
+/**
+ * <h2> MyUserDetailsService Class</h2>
+ * <p>
+ * Process for Displaying MyUserDetailsService
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Service("myUserDetailsService")
 public class MyUserDetailsService implements UserDetailsService{
     
+    /**
+     * <h2> customerService</h2>
+     * <p>
+     * customerService
+     * </p>
+     */
     @Autowired
     private CustomerService customerService;
     
+    /**
+     * <h2> loadUserByUsername </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param email
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         CustomerDto customerDto = customerService.findByEmail(email);

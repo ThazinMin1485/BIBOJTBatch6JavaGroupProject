@@ -21,12 +21,36 @@ import ojt.group.project.bl.service.BusService;
 import ojt.group.project.crud.web.form.BusForm;
 import ojt.group.project.persistence.entity.Bus;
 
+/**
+ * <h2> BusController Class</h2>
+ * <p>
+ * Process for Displaying BusController
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Controller
 public class BusController {
 	
+	/**
+	 * <h2> busService</h2>
+	 * <p>
+	 * busService
+	 * </p>
+	 */
 	@Autowired
     private BusService busService;
 	
+	/**
+	 * <h2> viewBookingBusTicket</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @return
+	 * @return ModelAndView
+	 */
 	@RequestMapping("/bus")
     public ModelAndView viewBookingBusTicket() {
         ModelAndView view=new ModelAndView("bus");
@@ -35,6 +59,17 @@ public class BusController {
         return view;
     }
 	
+    /**
+     * <h2> insertCustomer</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param bus
+     * @param result
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/insertbus", method = RequestMethod.POST)
     public ModelAndView insertCustomer(@Valid @ModelAttribute("busForm") BusForm bus, BindingResult result) {
     	 ModelAndView view=new ModelAndView("bus");
@@ -49,6 +84,15 @@ public class BusController {
 		return view;
     }
     
+    /**
+     * <h2> showBusList</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/busReport")
     public ModelAndView showBusList() {
     	ModelAndView view =new ModelAndView("busReport");
@@ -62,12 +106,22 @@ public class BusController {
         Bus bus = busService.getById(busid);
 
         System.out.println(bus);
-        m.addAttribute("Bus", bus);
+        m.addAttribute("updateBus", bus);
         m.addAttribute("title", "Edit Bus");
 
         return "editBus";
     }
     
+    /**
+     * <h2> updateBus</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param bus
+     * @return
+     * @return String
+     */
     @PostMapping("/editBus/updateBus")
     public String updateBus(@ModelAttribute("updateBus") Bus bus) {
         busService.updateBus(bus);
@@ -75,6 +129,16 @@ public class BusController {
         return "redirect:/busReport";
     }
     
+    /**
+     * <h2> deleteBus</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param busid
+     * @return
+     * @return String
+     */
     @GetMapping("/deleteBus/{busid}")
     public String deleteBus(@PathVariable int busid) {
         busService.deleteBus(busid);

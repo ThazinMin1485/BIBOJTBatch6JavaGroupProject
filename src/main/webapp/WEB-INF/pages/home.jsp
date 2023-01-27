@@ -17,7 +17,11 @@
     </div>
     <br>
     <div>
-      <a href="bookingbusticket" class="btn">Booking Bus Tickets</a>
+      <a href="bus" class="btn">Bus</a>
+    </div>
+    <br>
+    <div>
+      <a href="seat" class="btn">Seat</a>
     </div>
   </div>
 </body>

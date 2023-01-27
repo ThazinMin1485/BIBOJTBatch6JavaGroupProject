@@ -13,6 +13,15 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * <h2> Driver Class</h2>
+ * <p>
+ * Process for Displaying Driver
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity
@@ -97,6 +106,6 @@ public class Driver implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;
+    private Boolean delflag;
 
 }

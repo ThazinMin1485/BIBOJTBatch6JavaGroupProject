@@ -13,6 +13,15 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * <h2> Reservation Class</h2>
+ * <p>
+ * Process for Displaying Reservation
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity
@@ -133,5 +142,5 @@ public class Reservation implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;
+    private Boolean delflag;
 }

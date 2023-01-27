@@ -13,6 +13,15 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * <h2> Payment Class</h2>
+ * <p>
+ * Process for Displaying Payment
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity
@@ -88,5 +97,5 @@ public class Payment implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;
+    private Boolean delflag;
 }

@@ -21,11 +21,35 @@ import ojt.group.project.bl.service.SeatService;
 import ojt.group.project.crud.web.form.SeatForm;
 import ojt.group.project.persistence.entity.Seat;
 
+/**
+ * <h2> SeatController Class</h2>
+ * <p>
+ * Process for Displaying SeatController
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Controller
 public class SeatController {
+	/**
+	 * <h2> seatService</h2>
+	 * <p>
+	 * seatService
+	 * </p>
+	 */
 	@Autowired
     private SeatService seatService;
 	
+	/**
+	 * <h2> viewBookingBusTicket</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @return
+	 * @return ModelAndView
+	 */
 	@RequestMapping("/seat")
     public ModelAndView viewBookingBusTicket() {
         ModelAndView view=new ModelAndView("seat");
@@ -34,6 +58,17 @@ public class SeatController {
         return view;
     }
 	
+    /**
+     * <h2> insertSeat</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param seat
+     * @param result
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/insertseat", method = RequestMethod.POST)
     public ModelAndView insertSeat(@Valid @ModelAttribute("seatForm") SeatForm seat, BindingResult result) {
     	 ModelAndView view=new ModelAndView("seat");
@@ -48,6 +83,15 @@ public class SeatController {
 		return view;
     }
     
+    /**
+     * <h2> showBusList</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/seatReport")
     public ModelAndView showBusList() {
     	ModelAndView view =new ModelAndView("seatReport");
@@ -55,16 +99,37 @@ public class SeatController {
     	return view.addObject("list", list);
     }
     
+    /**
+     * <h2> lodeEditForm</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param seatid
+     * @param m
+     * @return
+     * @return String
+     */
     @GetMapping("/editSeat/{seatid}")
     public String lodeEditForm(@PathVariable(value = "seatid") int seatid, Model m) {
         Seat seat = seatService.getById(seatid);
 
         System.out.println(seat);
-        m.addAttribute("Seat", seat);
+        m.addAttribute("updateSeat", seat);
 
         return "editSeat";
     }
     
+    /**
+     * <h2> updateSeat</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param seat
+     * @return
+     * @return String
+     */
     @PostMapping("/editSeat/updateSeat")
     public String updateSeat(@ModelAttribute("updateSeat") Seat seat) {
         seatService.updateSeat(seat);
@@ -72,6 +137,16 @@ public class SeatController {
         return "redirect:/seatReport";
     }
     
+    /**
+     * <h2> deleteSeat</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param seatid
+     * @return
+     * @return String
+     */
     @GetMapping("/deleteSeat/{seatid}")
     public String deleteSeat(@PathVariable int seatid) {
         seatService.deleteSeat(seatid);

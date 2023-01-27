@@ -13,6 +13,15 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * <h2> TransactionReport Class</h2>
+ * <p>
+ * Process for Displaying TransactionReport
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity

@@ -2,11 +2,19 @@ package ojt.group.project.persistence.dao;
 
 import java.util.List;
 
-import ojt.group.project.crud.web.form.BookingBusticketForm;
 import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.persistence.entity.Customer;
+/**
+ * <h2> CustomerDao Class</h2>
+ * <p>
+ * Process for Displaying CustomerDao
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 public interface CustomerDao {
- // add customer
+	// add customer
     public void addCustomer(Customer cus);
 
     // get all customer
@@ -16,10 +24,5 @@ public interface CustomerDao {
     public Customer findByEmail(String email);
     
     //Login
-    public void login(LoginForm loginForm);
-    
-    //Booking Bus Ticket
-    public void bookingbusticket(BookingBusticketForm bookingbusticketForm);
-    
-    
+    public void login(LoginForm loginForm);    
 }

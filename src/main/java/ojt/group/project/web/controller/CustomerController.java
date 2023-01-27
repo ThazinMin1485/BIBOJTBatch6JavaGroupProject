@@ -19,13 +19,37 @@ import ojt.group.project.crud.web.form.CreateCusForm;
 import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.crud.web.form.RegisterForm;
 
+/**
+ * <h2> CustomerController Class</h2>
+ * <p>
+ * Process for Displaying CustomerController
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Controller
 public class CustomerController {
     
     
+    /**
+     * <h2> customerService</h2>
+     * <p>
+     * customerService
+     * </p>
+     */
     @Autowired
     private CustomerService customerService;
     
+    /**
+     * <h2> showLogin</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
     public ModelAndView showLogin() {
         
@@ -35,6 +59,17 @@ public class CustomerController {
         return view;
     }
  
+    /**
+     * <h2> login</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param login
+     * @param result
+     * @return
+     * @return String
+     */
     @RequestMapping(value="/login", method = RequestMethod.POST)
     public String login(@Valid @ModelAttribute("login") LoginForm login, BindingResult result) {
            if(result.hasErrors()) {
@@ -46,6 +81,15 @@ public class CustomerController {
            }
         }
     
+    /**
+     * <h2> showRegister</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/addCustomer" }, method = RequestMethod.GET)
     public ModelAndView showRegister() {
        ModelAndView view =new ModelAndView();
@@ -55,6 +99,17 @@ public class CustomerController {
     }
     
 
+    /**
+     * <h2> insertCustomer</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param reg
+     * @param result
+     * @return
+     * @return String
+     */
     @RequestMapping(value = { "/insertCustomer" }, method = RequestMethod.POST)
     public String insertCustomer(@Valid @ModelAttribute("registerForm") RegisterForm reg, BindingResult result) {
         if (result.hasErrors()) {
@@ -66,6 +121,15 @@ public class CustomerController {
         }
     }
     
+    /**
+     * <h2> lodeCustomer</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return ModelAndView
+     */
     @GetMapping("/customerReport")
     public ModelAndView lodeCustomer() {
         ModelAndView report = new ModelAndView("customerReport");

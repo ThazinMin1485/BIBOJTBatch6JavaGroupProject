@@ -17,13 +17,36 @@ import ojt.group.project.persistence.dao.SeatDao;
 import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.Seat;
 
+/**
+ * <h2> SeatServiceImpl Class</h2>
+ * <p>
+ * Process for Displaying SeatServiceImpl
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Transactional
 @Service
 public class SeatServiceImpl implements SeatService{
 	
-	 @Autowired
+	 /**
+	 * <h2> seatDao</h2>
+	 * <p>
+	 * seatDao
+	 * </p>
+	 */
+	@Autowired
 	    private SeatDao seatDao;
 	
+	/**
+	 * <h2> addSeat </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param seatForm
+	 */
 	@Override
 	 public void addSeat(SeatForm seatForm) {
 		 Seat seat=new Seat();
@@ -36,7 +59,14 @@ public class SeatServiceImpl implements SeatService{
 	     seatDao.addSeat(seat);
 	 }
 
-	    // get all seat
+		/**
+		 * <h2> getAllSeat </h2>
+		 * <p>
+		 * 
+		 * </p>
+		 * 
+		 * @return
+		 */
 		@Override
 	    public List<SeatDto> getAllSeat(){
 			List<Seat> allSeat = seatDao.getAllSeat();
@@ -52,20 +82,44 @@ public class SeatServiceImpl implements SeatService{
 	        }
 	        return seat;
 	    }
-	    
-	 // get seat by id
+		
+		/**
+		 * <h2> getById </h2>
+		 * <p>
+		 * 
+		 * </p>
+		 * 
+		 * @param seatid
+		 * @return
+		 */
 		@Override
 	    public Seat getById(int seatid) {
 			 return seatDao.getSeatById(seatid);
 	    }
 
-	    // update seat
+		/**
+		 * <h2> updateSeat </h2>
+		 * <p>
+		 * 
+		 * </p>
+		 * 
+		 * @param seat
+		 */
 		@Override
 	    public void updateSeat(Seat seat) {
 			seatDao.updateSeat(seat);
+			seat.setCreatedat(new Date());
+	        seat.setUpdateat(new Date());
 	    }
 
-	    // seat seat
+		/**
+		 * <h2> deleteSeat </h2>
+		 * <p>
+		 * 
+		 * </p>
+		 * 
+		 * @param seatid
+		 */
 		@Override
 	    public void deleteSeat(int seatid) {
 			seatDao.deleteseat(seatid);

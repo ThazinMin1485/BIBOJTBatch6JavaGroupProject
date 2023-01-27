@@ -14,6 +14,15 @@ import lombok.Getter;
 import lombok.Setter;
 import ojt.group.project.crud.web.form.BusForm;
 
+/**
+ * <h2> Bus Class</h2>
+ * <p>
+ * Process for Displaying Bus
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity
@@ -98,13 +107,26 @@ public class Bus implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;   
+    private Boolean delflag;   
     
     
+    /**
+     * <h2> Constructor for Bus </h2>
+     * <p>
+     * Constructor for Bus
+     * </p>
+     */
     public Bus() {
         super();
     }
     
+    /**
+     * <h2> Constructor for Bus </h2>
+     * <p>
+     * Constructor for Bus
+     * </p>
+     * @param busForm
+     */
     public Bus(BusForm busForm) {
         this.busid=busForm.getBusid();
         this.busno=busForm.getBusno();
