@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* Edit Bus */
+label{
+  color: #6A6C89;
+  font-size: 20px;
+}
+h1{
+  color: #003081;
+  font-size: 44px;
+  text-align: center;
+  padding-top: 20px;
+}
+.edit-btn{
+  color: #ffffff;
+  background-color: #484C8D;
+  padding: 5px 30px;
+  border-color: transparent;
+}
+input{
+  padding: 5px 40px;
+  border-color: transparent;
+}
+
+.editbus,
+.editseat{
+	background-color: #7FB3D5;
+}
+.edit{
+	margin-left: 40%;
+	padding-bottom: 30px;
+}

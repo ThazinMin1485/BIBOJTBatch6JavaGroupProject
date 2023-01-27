@@ -2,7 +2,6 @@ package ojt.group.project.persistence.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,13 +11,23 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import ojt.group.project.crud.web.form.BusForm;
 
+/**
+ * <h2> Bus Class</h2>
+ * <p>
+ * Process for Displaying Bus
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity
 @Table(name = "bus")
 public class Bus implements Serializable{
-    /**
+	/**
      *<h2>serialVersionUID</h2>
      *<p>
      *serialVersionUID
@@ -34,7 +43,7 @@ public class Bus implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bus_id")
-    private Integer busId;
+    private Integer busid;
     
     /**
      *<h2>busno</h2>
@@ -97,5 +106,30 @@ public class Bus implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Boolean delflag;   
+    private Boolean delflag;      
+    
+    /**
+     * <h2> Constructor for Bus </h2>
+     * <p>
+     * Constructor for Bus
+     * </p>
+     */
+    public Bus() {
+        super();
+    }
+    
+    /**
+     * <h2> Constructor for Bus </h2>
+     * <p>
+     * Constructor for Bus
+     * </p>
+     * @param busForm
+     */
+    public Bus(BusForm busForm) {
+        this.busid=busForm.getBusid();
+        this.busno=busForm.getBusno();
+        this.busstatus=busForm.getBusstatus();
+        this.busseats=busForm.getBusseats();
+        this.driverid=busForm.getDriverid();
+    }
 }

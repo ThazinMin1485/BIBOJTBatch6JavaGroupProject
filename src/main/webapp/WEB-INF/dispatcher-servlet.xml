@@ -31,7 +31,6 @@
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 	</bean>
 
-
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
@@ -94,5 +93,35 @@
 		name="transactionManager">
 		<property name="sessionFactory" ref="factory"></property>
 	</bean>
+        </property>
+        <!-- annotated classes -->
+        <property name="annotatedClasses">
+            <list>
+                <value>ojt.group.project.persistence.entity.Customer</value>
+                <value>ojt.group.project.persistence.entity.Bus</value>
+                <value>ojt.group.project.persistence.entity.Seat</value>
+            </list>
+        </property>
+        
+        <property name="packagesToScan"
+            value="ojt.group.project.persistence.entity" />
+    </bean>
+    
+     <bean
+        class="org.springframework.orm.hibernate5.HibernateTemplate"
+        name="hibernateTemplate">
+        <property name="sessionFactory" ref="factory"></property>
+    </bean>
 
+    <tx:annotation-driven
+        transaction-manager="transactionManager" />
+    <bean
+        class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+        name="transactionManager">
+        <property name="sessionFactory" ref="factory"></property>
+    </bean>
+
+    <bean id="bCryptPasswordEncoder"
+        class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    </bean>
 </beans>

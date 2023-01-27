@@ -12,7 +12,17 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import ojt.group.project.crud.web.form.CreateCusForm;
 
+/**
+ * <h2> Customer Class</h2>
+ * <p>
+ * Process for Displaying Customer
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Getter
 @Setter
 @Entity
@@ -43,7 +53,7 @@ public class Customer implements Serializable{
      *</p> 
      */
     @Column(name="customer_name")
-    private String customername;
+    private String userName;
     
     /**
      *<h2>gender</h2>
@@ -88,8 +98,7 @@ public class Customer implements Serializable{
      *</p> 
      */
     @Column(name="ph_no")
-    private String phno;
-    
+    private String ph_no;
     /**
      *<h2>email</h2>
      *<p>
@@ -98,6 +107,25 @@ public class Customer implements Serializable{
      */
     @Column(name="email")
     private String email;
+    
+    
+    /**
+     *<h2>password</h2>
+     *<p>
+     *password
+     *</p> 
+     */
+    @Column(name="password")
+    private String password;
+    
+    /**
+     *<h2>confirmpassword</h2>
+     *<p>
+     *confirmpassword
+     *</p> 
+     */
+    @Column(name="confirmpassword")
+    private String confirmpassword;
     
     /**
      *<h2>createdat</h2>
@@ -125,4 +153,34 @@ public class Customer implements Serializable{
      */
     @Column(name="del_flag")
     private Boolean delflag;
+    
+    /**
+     * <h2> Constructor for Customer </h2>
+     * <p>
+     * Constructor for Customer
+     * </p>
+     */
+    public Customer() {
+        super();
+    }
+    
+    /**
+     * <h2> Constructor for Customer </h2>
+     * <p>
+     * Constructor for Customer
+     * </p>
+     * @param cusForm
+     */
+    public Customer(CreateCusForm cusForm) {
+        this.customerid=cusForm.getCustomerid();
+        this.userName=cusForm.getUserName();
+        this.gender=cusForm.getGender();
+        this.age=cusForm.getAge();
+        this.nrc=cusForm.getNrc();
+        this.address=cusForm.getAddress();
+        this.ph_no=cusForm.getPh_no();
+        this.email=cusForm.getEmail();
+        this.password=cusForm.getPassword();
+        this.confirmpassword=cusForm.getConfirmpassword();
+    }
 }
