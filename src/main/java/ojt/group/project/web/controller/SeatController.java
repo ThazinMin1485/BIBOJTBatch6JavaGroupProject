@@ -73,7 +73,6 @@ public class SeatController {
     public ModelAndView insertSeat(@Valid @ModelAttribute("seatForm") SeatForm seat, BindingResult result) {
     	 ModelAndView view=new ModelAndView("seat");
         if (result.hasErrors()) {
-        	System.out.println("error");
             return view;
         }
         else {

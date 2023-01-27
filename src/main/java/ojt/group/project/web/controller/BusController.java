@@ -74,7 +74,6 @@ public class BusController {
     public ModelAndView insertCustomer(@Valid @ModelAttribute("busForm") BusForm bus, BindingResult result) {
     	 ModelAndView view=new ModelAndView("bus");
         if (result.hasErrors()) {
-        	System.out.println("error");
             return view;
         }
         else {

@@ -7,6 +7,7 @@
 <title>Home</title>
 </head>
 <body>
+<h1>Welcome Bus Booking System</h1>
 <div class="container">
   <div>
       <a href="login" class="btn">Login</a>

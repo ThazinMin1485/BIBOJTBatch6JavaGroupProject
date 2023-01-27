@@ -33,7 +33,7 @@ public class SeatForm {
 	 * busid
 	 * </p>
 	 */
-	@NotNull
+	@NotNull(message = "Bus Id cannot be empty")
 	private Integer busid;
 	/**
 	 * <h2> busno</h2>
@@ -41,7 +41,7 @@ public class SeatForm {
 	 * busno
 	 * </p>
 	 */
-	@NotNull
+	@NotNull(message = "Bus Number cannot be empty")
 	private Integer busno;
 	/**
 	 * <h2> seatno</h2>
@@ -49,7 +49,7 @@ public class SeatForm {
 	 * seatno
 	 * </p>
 	 */
-	@NotNull
+	@NotNull(message = "Bus Seat cannot be empty")
 	private Integer seatno;
 	/**
 	 * <h2> reservationid</h2>
@@ -57,7 +57,7 @@ public class SeatForm {
 	 * reservationid
 	 * </p>
 	 */
-	@NotNull
+	@NotNull(message = "Reservation Id cannot be empty")
 	private Integer reservationid;
 	
 	/**

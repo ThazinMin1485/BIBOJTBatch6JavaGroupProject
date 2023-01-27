@@ -73,11 +73,10 @@ public class CustomerController {
     @RequestMapping(value="/login", method = RequestMethod.POST)
     public String login(@Valid @ModelAttribute("login") LoginForm login, BindingResult result) {
            if(result.hasErrors()) {
-               System.out.println("Error");
                return "login";
            }else {
                customerService.login(login);
-              return "redirect:/bookingbusticket";
+              return "redirect:/bus";
            }
         }
     

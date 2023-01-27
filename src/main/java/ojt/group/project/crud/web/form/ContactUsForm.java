@@ -1,5 +1,6 @@
 package ojt.group.project.crud.web.form;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -24,7 +25,7 @@ public class ContactUsForm {
      * userName
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Name cannot be empty")
     @Size(min = 1, max = 50)
     private String userName;
     /**
@@ -33,7 +34,8 @@ public class ContactUsForm {
      * email
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Email cannot be empty")
+    @Email
     private String email;
     /**
      * <h2> message</h2>

@@ -37,7 +37,7 @@ public class RegisterForm {
      * userName
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Name cannot be empty")
     private String userName;
     /**
      * <h2> gender</h2>
@@ -54,7 +54,7 @@ public class RegisterForm {
      * age
      * </p>
      */
-    @NotNull
+    @NotNull(message = "Age cannot be empty")
     private Integer age;
     /**
      * <h2> nrc</h2>
@@ -62,7 +62,7 @@ public class RegisterForm {
      * nrc
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "NRC cannot be empty")
     private String nrc;
     /**
      * <h2> address</h2>
@@ -70,7 +70,7 @@ public class RegisterForm {
      * address
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Address cannot be empty")
     @Size(min=5,max=50)
     private String address;
     /**
@@ -79,7 +79,7 @@ public class RegisterForm {
      * ph_no
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Phone Number cannot be empty")
     private String ph_no;
     /**
      * <h2> email</h2>
@@ -87,7 +87,7 @@ public class RegisterForm {
      * email
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Email cannot be empty")
     @Email
     private String email;
     /**
@@ -96,7 +96,7 @@ public class RegisterForm {
      * password
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Please Enter Your Password")
     @Size(min = 5, max = 20)
     private String password;
     /**

@@ -1,6 +1,7 @@
 package ojt.group.project.crud.web.form;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,6 +34,7 @@ public class BusForm {
 	 * busno
 	 * </p>
 	 */
+	@NotNull(message = "Bus Number cannot be empty")
 	private Integer busno;
 	/**
 	 * <h2> busstatus</h2>
@@ -40,7 +42,7 @@ public class BusForm {
 	 * busstatus
 	 * </p>
 	 */
-	@NotEmpty
+	@NotEmpty(message = "Bus Status cannot be empty")
 	private String busstatus;
 	/**
 	 * <h2> busseats</h2>
@@ -48,7 +50,7 @@ public class BusForm {
 	 * busseats
 	 * </p>
 	 */
-	@NotEmpty
+	@NotEmpty(message = "Bus Seat cannot be empty")
 	private String busseats;
 	/**
 	 * <h2> driverid</h2>
@@ -56,6 +58,7 @@ public class BusForm {
 	 * driverid
 	 * </p>
 	 */
+	@NotNull(message = "Driver Id cannot be empty")
 	private Integer driverid;
 	
 	/**

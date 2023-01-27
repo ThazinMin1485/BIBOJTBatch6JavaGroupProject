@@ -14,9 +14,9 @@
         <put-attribute name="body" value="/WEB-INF/pages/register.jsp" />  
     </definition>
     
-    <definition name="bookingbusticket" extends="template"> 
-        <put-attribute name="title" value="bookingbusticket" />  
-        <put-attribute name="body" value="/WEB-INF/pages/bookingbusticket.jsp" />  
+    <definition name="customerReport" extends="template"> 
+        <put-attribute name="title" value="customerReport" />  
+        <put-attribute name="body" value="/WEB-INF/pages/customerReport.jsp" />  
     </definition>
     
     <definition name="contactus" extends="template"> 

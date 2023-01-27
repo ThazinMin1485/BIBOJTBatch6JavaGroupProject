@@ -27,7 +27,7 @@ public class LoginForm {
      * email
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Email cannot be empty")
     @Email
     private String email;
     /**
@@ -36,7 +36,7 @@ public class LoginForm {
      * password
      * </p>
      */
-    @NotEmpty
+    @NotEmpty(message = "Please Enter Your Password")
     @Size(min = 5, max = 20)
     private String password;
     
