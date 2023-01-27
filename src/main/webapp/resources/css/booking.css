@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+
+.bookingPage .booking .column.seatbox {
+	width: 100px;
+}
+
+.bookingPage .booking .column.seatbox .form-check-label {
+	float: left;
+	width: 40px;
+}
+
+.bookingPage .booking .column.seatbox .form-check-label:nth-child(2n) {
+	margin-right: 0px;
+}
+
+.bookingPage .booking .column {
+	float: left;
+	margin-right: 30px;
+}
+
+.bookingPage .booking .column.destination-column{
+	margin-top:150px;
+}

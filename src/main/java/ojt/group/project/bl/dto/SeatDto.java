@@ -1,5 +1,4 @@
 package ojt.group.project.bl.dto;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,11 +1,9 @@
 package ojt.group.project.bl.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import ojt.group.project.persistence.entity.Bus;
+import java.util.Date;
 
 /**
  * @author PyaeSuMon
@@ -13,8 +11,6 @@ import ojt.group.project.persistence.entity.Bus;
  */
 @AllArgsConstructor
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 public class BusDto {
 	/**
@@ -52,7 +48,9 @@ public class BusDto {
 	 * </p>
 	 */
 	private Integer driverid;
-	
+	private Date createdat;
+	private Date updateat;
+	private Boolean delflag;
 	 /**
 	 * <h2> Constructor for BusDto </h2>
 	 * <p>
@@ -60,14 +58,17 @@ public class BusDto {
 	 * </p>
 	 * @param bus
 	 */
-	public BusDto(Bus bus) {
-    if (bus == null) {
-        bus = new Bus();
-    }
-	 this.busid=bus.getBusid();
-	 this.busno=bus.getBusno();
-	 this.busstatus=bus.getBusstatus();
-	 this.busseats=bus.getBusseats();
-	 this.driverid=bus.getDriverid();
-}
-}
+	public BusDto(Bus b) {
+		this.busId = b.getBusid();
+		this.busno = b.getBusno();
+		this.busstatus = b.getBusstatus();
+		this.busseats = b.getBusseats();
+		this.driverid = b.getDriverid();
+		this.createdat = b.getCreatedat();
+		this.updateat = b.getUpdateat();
+		this.delflag = b.getDelflag();
+	}
+  }
+  
+  
+

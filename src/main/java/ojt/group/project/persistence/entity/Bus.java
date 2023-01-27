@@ -2,7 +2,6 @@ package ojt.group.project.persistence.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -107,8 +106,7 @@ public class Bus implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Boolean delflag;   
-    
+    private Boolean delflag;      
     
     /**
      * <h2> Constructor for Bus </h2>

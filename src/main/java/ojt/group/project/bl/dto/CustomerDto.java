@@ -1,8 +1,8 @@
 package ojt.group.project.bl.dto;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import ojt.group.project.persistence.entity.Customer;
-
 /**
  * <h2> CustomerDto Class</h2>
  * <p>
@@ -93,6 +93,9 @@ public class CustomerDto {
      * </p>
      * @param cus
      */
+     private Date createdat;
+    private Date updateat;
+    private Boolean delflag;
     public CustomerDto(Customer cus) {
         if (cus == null) {
             cus = new Customer();
@@ -107,5 +110,9 @@ public class CustomerDto {
         this.email=cus.getEmail();
         this.password=cus.getPassword();
         this.confirmpassword=cus.getConfirmpassword();
+        this.createdat=c.getCreatedat();
+    	this.updateat=c.getUpdateat();
+    	this.delflag=c.getDelflag();
 }
+
 }

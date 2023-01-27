@@ -99,7 +99,6 @@ public class Customer implements Serializable{
      */
     @Column(name="ph_no")
     private String ph_no;
-    
     /**
      *<h2>email</h2>
      *<p>
