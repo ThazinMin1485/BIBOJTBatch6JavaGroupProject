@@ -28,5 +28,5 @@ public interface ReservationService {
 	
 	public List<SeatDto> getSeatByBusId(int busid);
 		
-	public List<BusDestinationDto> getBusDestinationBusId(int busid);
+	public BusDestinationDto getBusDestinationBusId(int busid);
 }

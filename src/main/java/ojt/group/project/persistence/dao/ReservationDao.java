@@ -29,5 +29,5 @@ public interface ReservationDao {
 		
 	public List<Seat> getSeatByBusId(int busid);
 	
-	public List<BusDestination> getDestinationByBusId(int busid);
+	public BusDestination getDestinationByBusId(int busid);
 }

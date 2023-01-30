@@ -31,6 +31,8 @@
 						</label>
 					</c:forEach>
 				</div>
+				<input type="text" value="${destination.busid }" id="busid"
+					name="busid" hidden="hidden">
 				<div class="column destination-column">
 					<table class="table table-hover">
 						<tr>
@@ -41,16 +43,14 @@
 							<th>Seat Amount</th>
 							<th>Total Amount</th>
 						</tr>
-						<c:forEach var="d" items="${destination }">
-							<tr>
-								<td>${d.departtime }</td>
-								<td>${d.departlocation }</td>
-								<td>${d.destinationlocation }</td>
-								<td id="price">${d.unitprice }</td>
-								<td id="selected-number"></td>
-								<td id="total-amount"></td>
-							</tr>
-						</c:forEach>
+						<tr>
+							<td>${destination.departtime }</td>
+							<td>${destination.departlocation }</td>
+							<td>${destination.destinationlocation }</td>
+							<td id="price">${destination.unitprice }</td>
+							<td id="selected-number"></td>
+							<td id="total-amount"></td>
+						</tr>
 					</table>
 				</div>
 			</div>
