@@ -88,5 +88,5 @@ public class Payment implements Serializable{
      *</p> 
      */
     @Column(name="del_flag")
-    private Date delflag;
+    private Boolean delflag;
 }

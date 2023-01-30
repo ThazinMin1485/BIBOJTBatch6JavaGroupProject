@@ -16,47 +16,63 @@
 <link href="<c:url value="/resources/css/booking.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<style>
+.col {
+	width: 300px;
+}
+
+.col input {
+	width: 100px;
+}
+</style>
 </head>
 <body class="bookingPage">
 	<div class="container booking">
 		<h1>Online Bus Ticket Booking System</h1>
 		<h2 class="header">Seat Numbers</h2>
-		<form:form action="booking" method="post">
-			<div class="clearfix">
+		<form:form action="addBooking" method="post">
+				<input type="text" value="${destination.busid }" id="busid"
+					name="busid" hidden="hidden"> <input type="text" value=1
+					id="customerid" name="customerid" hidden="hidden">
 				<div class="column seatbox clearfix">
 					<c:forEach var="s" items="${seat }">
-						<label class="form-check-label" for="${s.seatid}"> <input
-							type="checkbox" class="form-check-input" id="${s.seatid}"
-							name="${s.seatno}" value="${s.seatno}"> ${s.seatno}
+						<label class="form-check-label" for="'seat'+${s.seatid}">
+							<input type="checkbox" class="form-check-input"
+							id="'seat'+${s.seatid}" name="seatid" value="${s.seatno}">
+							${s.seatno}
 						</label>
 					</c:forEach>
 				</div>
-				<div class="column destination-column">
-					<table class="table table-hover">
-						<tr>
-							<th>Depart Time</th>
-							<th>Depart Location</th>
-							<th>Destination Location</th>
-							<th>Unit Price</th>
-							<th>Seat Amount</th>
-							<th>Total Amount</th>
-						</tr>
-						<c:forEach var="d" items="${destination }">
-							<tr>
-								<td>${d.departtime }</td>
-								<td>${d.departlocation }</td>
-								<td>${d.destinationlocation }</td>
-								<td id="price">${d.unitprice }</td>
-								<td id="selected-number"></td>
-								<td id="total-amount"></td>
-							</tr>
-						</c:forEach>
-					</table>
+				<div class="row">
+					<div class="col">Depart Time</div>
+					<div class="col">Depart Location</div>
+					<div class="col">Destination Location</div>
+					<div class="col">Unit Price</div>
+					<div class="col">Seat Amount</div>
+					<div class="col">Total Amount</div>
 				</div>
-			</div>
-			<div class="center">
-				<button type="submit" class="btn btn-outline-primary btnclass">Submit</button>
-			</div>
+				<div class="row">
+					<div class="col">
+						<input type="text" value="${destination.departtime}"
+							id="departtime" name="departtime" readonly="readonly">
+					</div>
+					<div class="col">
+						<input type="text" value="${destination.departlocation}"
+							id="departlocation" name="departlocation" readonly="readonly">
+					</div>
+					<div class="col">
+						<input type="text" value="${destination.destinationlocation}"
+							id="destinationlocation" name="destinationlocation"
+							readonly="readonly">
+					</div>
+					<div class="col" id="price">${destination.unitprice }</div>
+					<div class="col" id="selected-number"></div>
+					<div class="col" id="total-amount"></div>
+				</div>
+			<a href="${pageContext.request.contextPath }/busRoute"
+				class="btn btn-outline-secondary"> Back </a>
+			<button type="submit" class="btn btn-outline-primary btnclass">Submit</button>
+
 		</form:form>
 	</div>
 </body>

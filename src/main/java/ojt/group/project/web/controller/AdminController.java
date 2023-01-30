@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ojt.group.project.bl.dto.BusDestinationDto;
 import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
-import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
+import ojt.group.project.web.form.BookingForm;
 import ojt.group.project.web.form.ReservationForm;
 
 @Controller
@@ -27,9 +26,14 @@ public class AdminController {
 	@Autowired
 	private ReservationService service;
 	
-	@RequestMapping(value = { "/" })
+	@GetMapping(value= {"/"})
+	public String viewHome() {
+		return "home";
+	}
+	
+	@RequestMapping(value = { "/reservation" })
 	public ModelAndView viewReport() {
-		ModelAndView report=new ModelAndView("home");
+		ModelAndView report=new ModelAndView("reservation");
 		List<ReservationDto> resList=service.getAllReservationList();
 		List<TransactionReportDto> reportList=service.getAllReportList();
 		report.addObject("reservation", resList);
@@ -49,7 +53,7 @@ public class AdminController {
 	@RequestMapping(value={"/editReservation/updateReservation"},method=RequestMethod.POST)
 	public String updateReservation(@ModelAttribute ("updateReservation") ReservationForm resv) {
 		service.updateReservation(resv);
-		return "redirect:/";
+		return "redirect:/reservation";
 		
 	}
 	
@@ -77,13 +81,17 @@ public class AdminController {
 	
 	@GetMapping("/selectBus/{busId}")
 	public String bookingPage(@PathVariable(value="busId") int busId,Model m) {
-		BusDto bd=service.getBusById(busId);
-		List<SeatDto> st=service.getSeatByBusId(busId);
-		List<BusDestinationDto> des=service.getBusDestinationBusId(busId);
-		m.addAttribute("bus", bd);
+		List<BookingForm> st=service.getSeatByBusId(busId);
+		BookingForm des=service.getBusDestinationBusId(busId);
 		m.addAttribute("seat", st);
 		m.addAttribute("destination", des);
 		return "booking";
 		
+	}
+	@RequestMapping(value={"/selectBus/addBooking"},method=RequestMethod.POST)
+	public String addBooking(@ModelAttribute("addBooking") BookingForm booking) {
+		service.addReservation(booking);
+		service.addPayment(booking);
+		return "redirect:/busRoute";
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.BusDestination;
 import ojt.group.project.persistence.entity.Customer;
+import ojt.group.project.persistence.entity.Payment;
 import ojt.group.project.persistence.entity.Reservation;
 import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
@@ -12,24 +13,31 @@ import ojt.group.project.persistence.entity.TransactionReport;
 public interface ReservationDao {
 
 	public List<Reservation> getAllReservationList();
-	
+
 	public Reservation getReservationById(int reservation_id);
-	
+
 	public void updateReservation(Reservation resv);
-	
+
 	public void updateReport(TransactionReport report);
-	
+
 	public TransactionReport getReportById(int reservation_id);
-	
+
 	public List<TransactionReport> getAllReportList();
-	
+
 	public List<Customer> getCustomerList();
-	
+
 	public List<Bus> getBusList();
-	
-	public Bus getBusById(int busId);
-	
+
 	public List<Seat> getSeatByBusId(int busid);
-	
-	public List<BusDestination> getDestinationByBusId(int busid);
+
+	public BusDestination getDestinationByBusId(int busid);
+
+	public void addReservation(Reservation res);
+
+	public Seat getSeatById(int id);
+
+	public void updateSeat(Seat s);
+
+	public void addPayment(Payment p);
+
 }

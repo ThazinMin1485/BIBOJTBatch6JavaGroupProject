@@ -2,12 +2,11 @@ package ojt.group.project.bl.service;
 
 import java.util.List;
 
-import ojt.group.project.bl.dto.BusDestinationDto;
 import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
-import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
+import ojt.group.project.web.form.BookingForm;
 import ojt.group.project.web.form.ReservationForm;
 
 public interface ReservationService {
@@ -26,9 +25,11 @@ public interface ReservationService {
 	
 	public List<BusDto> getBusList();
 	
-	public List<SeatDto> getSeatByBusId(int busid);
+	public List<BookingForm> getSeatByBusId(int busid);
+		
+	public BookingForm getBusDestinationBusId(int busid);
 	
-	public BusDto getBusById(int busId);
+	public void addReservation(BookingForm b);
 	
-	public List<BusDestinationDto> getBusDestinationBusId(int busid);
+	public void addPayment(BookingForm b);
 }

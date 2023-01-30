@@ -13,6 +13,7 @@ import ojt.group.project.persistence.dao.ReservationDao;
 import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.BusDestination;
 import ojt.group.project.persistence.entity.Customer;
+import ojt.group.project.persistence.entity.Payment;
 import ojt.group.project.persistence.entity.Reservation;
 import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
@@ -88,16 +89,6 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.getResultList();
 	}
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Bus getBusById(int busId) {
-		String q = "SELECT b FROM Bus b WHERE b.busId=:busId";
-		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
-		query.setParameter("busId", busId);
-		Bus b = (Bus) query.uniqueResult();
-		return b;
-	}
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Seat> getSeatByBusId(int busid) {
@@ -107,13 +98,42 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.getResultList();
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes" })
 	@Override
-	public List<BusDestination> getDestinationByBusId(int busid) {
+	public BusDestination getDestinationByBusId(int busid) {
 		String q = "SELECT b from BusDestination b WHERE b.busid=:busid";
 		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
 		query.setParameter("busid", busid);
-		return query.getResultList();
+		BusDestination b = (BusDestination) query.uniqueResult();
+		return b;
+	}
+
+	@Override
+	public void addReservation(Reservation res) {
+		sessionFactory.getCurrentSession().save(res);
+
+	}
+
+	@SuppressWarnings({ "rawtypes" })
+	@Override
+	public Seat getSeatById(int id) {
+		String q = "SELECT s from Seat s WHERE s.seatid=:seatid";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("seatid", id);
+		Seat seat=(Seat) query.uniqueResult();
+		return seat;
+	}
+
+	@Override
+	public void updateSeat(Seat s) {
+		sessionFactory.getCurrentSession().update(s);
+
+	}
+
+	@Override
+	public void addPayment(Payment p) {
+		sessionFactory.getCurrentSession().save(p);
+
 	}
 
 }
