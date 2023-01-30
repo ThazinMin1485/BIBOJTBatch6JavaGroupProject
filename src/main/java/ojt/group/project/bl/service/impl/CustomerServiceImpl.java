@@ -1,4 +1,4 @@
-package ojt.group.project.project.bl.service.impl;
+package ojt.group.project.bl.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;

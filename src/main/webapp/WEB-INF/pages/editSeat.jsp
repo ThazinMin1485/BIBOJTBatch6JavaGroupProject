@@ -31,9 +31,8 @@
         <form:input type="busno" path="busno" value="${seat.busno}" 
         			id="busno" name="busno"/><br><br>
        
-        <form:label path="reservationid">Reservation Id</form:label><br><br>
         <form:input type="reservationid" path="reservationid" value="${seat.reservationid}" id="reservationid"
-        			 name="reservationid"/><br><br>
+        			 name="reservationid" hidden="hidden" /><br><br>
         
     <button type="submit" class="edit-btn">Submit</button>
     

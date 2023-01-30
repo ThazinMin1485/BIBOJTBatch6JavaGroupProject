@@ -39,12 +39,6 @@ color: #FAD7A0;
         <form:input type="busno" path="busno"/><br>
         <form:errors path="busno" class="error" />
  <br><br>   
- 
- 
- 		 <form:label path="reservationid">Reservation Id</form:label><br><br>
-        <form:input type="reservationid" path="reservationid"/><br>
-        <form:errors path="reservationid" class="error" />
- <br><br>  
 
         <div class="btn">
           <button type="submit" class="sign">Submit</button>

@@ -110,9 +110,9 @@ public class CustomerDto {
         this.email=cus.getEmail();
         this.password=cus.getPassword();
         this.confirmpassword=cus.getConfirmpassword();
-        this.createdat=c.getCreatedat();
-    	this.updateat=c.getUpdateat();
-    	this.delflag=c.getDelflag();
+        this.createdat=cus.getCreatedat();
+    	this.updateat=cus.getUpdateat();
+    	this.delflag=cus.getDelflag();
 }
 
 }

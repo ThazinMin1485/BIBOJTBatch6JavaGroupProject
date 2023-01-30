@@ -145,16 +145,16 @@ public class ReservationServiceImpl implements ReservationService {
 		List<CustomerDto> cusList=new ArrayList<CustomerDto>();
 		for(Customer cust:cus) {
 			CustomerDto cusD=new CustomerDto(cust);
-			cusD.setCustomerid(cust.getCustomerid());
+			cusD.setId(cust.getCustomerid());
 			cusD.setAddress(cust.getAddress());
 			cusD.setAge(cust.getAge());
 			cusD.setCreatedat(cust.getCreatedat());
-			cusD.setCustomername(cust.getCustomername());
+			cusD.setUserName(cust.getUserName());
 			cusD.setDelflag(cust.getDelflag());
 			cusD.setEmail(cust.getEmail());
 			cusD.setGender(cust.getGender());
 			cusD.setNrc(cust.getNrc());
-			cusD.setPhno(cust.getPhno());
+			cusD.setPh_no(cust.getPh_no());
 			cusD.setUpdateat(cust.getUpdateat());
 			cusList.add(cusD);
 		}
@@ -167,7 +167,7 @@ public class ReservationServiceImpl implements ReservationService {
 		List<BusDto> busList=new ArrayList<BusDto>();
 		for(Bus b:bus) {
 			BusDto bD=new BusDto(b);
-			bD.setBusId(b.getBusId());
+			bD.setBusid(b.getBusid());
 			bD.setBusno(b.getBusno());
 			bD.setBusseats(b.getBusseats());
 			bD.setBusstatus(b.getBusstatus());
@@ -188,22 +188,14 @@ public class ReservationServiceImpl implements ReservationService {
 			SeatDto sd=new SeatDto(s);
 			sd.setBusid(s.getBusid());
 			sd.setBusno(s.getBusno());
-			sd.setCreatedat(s.getCreatedat());
+			sd.setCreatedat(currentDate());
 			sd.setDelflag(s.getDelflag());
 			sd.setSeatid(s.getSeatid());
 			sd.setSeatno(s.getSeatno());
-			sd.setUpdateat(s.getUpdateat());
+			sd.setUpdateat(currentDate());
 			sList.add(sd);
 		}
 		return sList;
-	}
-
-	@Override
-	public BusDto getBusById(int busId) {
-
-		Bus b=resDao.getBusById(busId);
-		BusDto bs=new BusDto(b);
-		return bs;
 	}
 
 	@Override

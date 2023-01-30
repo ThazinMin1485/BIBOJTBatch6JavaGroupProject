@@ -59,7 +59,7 @@ public class BusDto {
 	 * @param bus
 	 */
 	public BusDto(Bus b) {
-		this.busId = b.getBusid();
+		this.busid = b.getBusid();
 		this.busno = b.getBusno();
 		this.busstatus = b.getBusstatus();
 		this.busseats = b.getBusseats();

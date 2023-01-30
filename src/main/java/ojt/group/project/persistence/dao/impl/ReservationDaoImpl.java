@@ -88,15 +88,6 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.getResultList();
 	}
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Bus getBusById(int busId) {
-		String q = "SELECT b FROM Bus b WHERE b.busId=:busId";
-		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
-		query.setParameter("busId", busId);
-		Bus b = (Bus) query.uniqueResult();
-		return b;
-	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override

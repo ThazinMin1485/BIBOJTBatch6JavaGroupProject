@@ -1,4 +1,4 @@
-package ojt.group.project.project.bl.service.impl;
+package ojt.group.project.bl.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,13 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.service.SeatService;
 import ojt.group.project.crud.web.form.SeatForm;
-import ojt.group.project.persistence.dao.BusDao;
 import ojt.group.project.persistence.dao.SeatDao;
-import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.Seat;
 
 /**
@@ -54,7 +51,6 @@ public class SeatServiceImpl implements SeatService{
 		 seat.setBusid(seatForm.getBusid());
 		 seat.setBusno(seatForm.getBusno());
 		 seat.setSeatno(seatForm.getSeatno());
-		 seat.setReservationid(seatForm.getReservationid());
 	     seat.setCreatedat(new Date()); 
 	     seatDao.addSeat(seat);
 	 }

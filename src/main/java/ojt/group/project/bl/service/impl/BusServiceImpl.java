@@ -1,4 +1,4 @@
-package ojt.group.project.project.bl.service.impl;
+package ojt.group.project.bl.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,6 +48,7 @@ public class BusServiceImpl implements BusService{
 	 public void addBus(BusForm busForm) {
 		 Bus bus=new Bus(busForm);
 	     bus.setCreatedat(new Date());
+	     bus.setDelflag(false);
 	     busDao.addBus(bus);
 	 }
 	 

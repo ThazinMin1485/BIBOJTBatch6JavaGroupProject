@@ -26,9 +26,7 @@ public interface ReservationDao {
 	public List<Customer> getCustomerList();
 	
 	public List<Bus> getBusList();
-	
-	public Bus getBusById(int busId);
-	
+		
 	public List<Seat> getSeatByBusId(int busid);
 	
 	public List<BusDestination> getDestinationByBusId(int busid);

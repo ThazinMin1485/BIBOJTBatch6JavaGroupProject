@@ -12,7 +12,7 @@
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-3.6.0.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet">
 </head>
 <body>
 	<h1>Online Bus Ticket Booking System</h1>
@@ -28,11 +28,11 @@
 			</tr>
 			<c:forEach var="b" items="${bus }">
 				<tr>
-					<td>${b.busId }</td>
+					<td>${b.busid }</td>
 					<td>${b.busno }</td>
 					<td>${b.busseats }</td>
 					<td>${b.busstatus }</td>
-					<td><a href="selectBus/${b.busId}"
+					<td><a href="selectBus/${b.busid}"
 						class="btn btn-outline-primary">Select</a></td>
 				</tr>
 			</c:forEach>

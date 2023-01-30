@@ -57,7 +57,6 @@ public class SeatForm {
 	 * reservationid
 	 * </p>
 	 */
-	@NotNull(message = "Reservation Id cannot be empty")
 	private Integer reservationid;
 	
 	/**

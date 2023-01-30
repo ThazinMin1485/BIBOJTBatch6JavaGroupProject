@@ -12,7 +12,7 @@
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-3.6.0.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet">
 
 </head>
 <body>
@@ -32,14 +32,14 @@
 			</tr>
 			<c:forEach var="c" items="${customer }">
 				<tr>
-					<td>${c.customerid }</td>
-					<td>${c.customername }</td>
+					<td>${c.id }</td>
+					<td>${c.userName }</td>
 					<td>${c.age }</td>
 					<td>${c.address }</td>
 					<td>${c.email }</td>
 					<td>${c.gender }</td>
 					<td>${c.nrc }
-					<td>${c.phno }</td>
+					<td>${c.ph_no }</td>
 				</tr>
 			</c:forEach>
 		</table>

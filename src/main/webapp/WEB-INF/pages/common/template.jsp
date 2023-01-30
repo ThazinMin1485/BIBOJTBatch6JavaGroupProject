@@ -11,7 +11,7 @@
 <title><tiles:insertAttribute name="title"></tiles:insertAttribute></title>
 <script src="<c:url value="/resources/js/jquery-3.6.0.min.js" />"></script>
 <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/js/common.js" />"></script>
 
 </head>

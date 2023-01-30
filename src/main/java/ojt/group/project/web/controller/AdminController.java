@@ -27,9 +27,9 @@ public class AdminController {
 	@Autowired
 	private ReservationService service;
 	
-	@RequestMapping(value = { "/" })
+	@RequestMapping(value = { "/reservation" })
 	public ModelAndView viewReport() {
-		ModelAndView report=new ModelAndView("home");
+		ModelAndView report=new ModelAndView("reservation");
 		List<ReservationDto> resList=service.getAllReservationList();
 		List<TransactionReportDto> reportList=service.getAllReportList();
 		report.addObject("reservation", resList);
@@ -49,14 +49,14 @@ public class AdminController {
 	@RequestMapping(value={"/editReservation/updateReservation"},method=RequestMethod.POST)
 	public String updateReservation(@ModelAttribute ("updateReservation") ReservationForm resv) {
 		service.updateReservation(resv);
-		return "redirect:/";
+		return "redirect:/reservation";
 		
 	}
 	
 	@GetMapping("/deleteReservation/{reservation_id}")
 	public String deleteReservationById(@PathVariable(value="reservation_id") int id,Model m) {
 		service.deleteReservationById(id);
-		return "redirect:/";
+		return "redirect:/reservation";
 	}
 	
 	@RequestMapping(value = { "/adminPassenger" })
@@ -77,10 +77,8 @@ public class AdminController {
 	
 	@GetMapping("/selectBus/{busId}")
 	public String bookingPage(@PathVariable(value="busId") int busId,Model m) {
-		BusDto bd=service.getBusById(busId);
 		List<SeatDto> st=service.getSeatByBusId(busId);
 		List<BusDestinationDto> des=service.getBusDestinationBusId(busId);
-		m.addAttribute("bus", bd);
 		m.addAttribute("seat", st);
 		m.addAttribute("destination", des);
 		return "booking";

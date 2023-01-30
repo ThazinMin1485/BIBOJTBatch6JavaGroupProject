@@ -15,7 +15,7 @@
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/booking.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet">
 </head>
 <body class="bookingPage">
 	<div class="container booking">
