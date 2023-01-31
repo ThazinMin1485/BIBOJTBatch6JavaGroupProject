@@ -15,9 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.service.CustomerService;
-import ojt.group.project.crud.web.form.CreateCusForm;
-import ojt.group.project.crud.web.form.LoginForm;
-import ojt.group.project.crud.web.form.RegisterForm;
+import ojt.group.project.persistence.entity.Customer;
+import ojt.group.project.web.form.CreateCusForm;
+import ojt.group.project.web.form.LoginForm;
+import ojt.group.project.web.form.RegisterForm;
 
 /**
  * <h2> CustomerController Class</h2>
@@ -72,11 +73,16 @@ public class CustomerController {
      */
     @RequestMapping(value="/login", method = RequestMethod.POST)
     public String login(@Valid @ModelAttribute("login") LoginForm login, BindingResult result) {
+    	Customer customer = this.customerService.doGetCustomerByEmail(login.getEmail());
            if(result.hasErrors()) {
                return "login";
            }else {
-               customerService.login(login);
-              return "redirect:/bus";
+        	   if(login.getEmail()=="admin2023@gmail.com" || customer.getType()==1) {
+        		   customerService.login(login);
+                   return "redirect:/bus";
+        	   }else {
+        		   return "redirect:/reservation";
+        	   }
            }
         }
     

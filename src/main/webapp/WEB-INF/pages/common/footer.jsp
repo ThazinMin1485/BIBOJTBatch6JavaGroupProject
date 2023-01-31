@@ -25,7 +25,7 @@
 			</ul>
 			CopyRight &copy; ${LocalDate.now().year } CompanyName Co.,Ltd. All
 			Rights Reserved 
-			<p><a href="/BusTicketBookingSystem/contact">Contact
+			<p><a href="/BusTicketBookingSystem/contactus">Contact
 				Us</a></p>
 
 		</div>

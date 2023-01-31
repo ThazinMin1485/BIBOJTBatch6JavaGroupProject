@@ -17,13 +17,36 @@ import ojt.group.project.persistence.entity.Reservation;
 import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
 
+/**
+ * <h2> ReservationDaoImpl Class</h2>
+ * <p>
+ * Process for Displaying ReservationDaoImpl
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Repository
 @Transactional
 public class ReservationDaoImpl implements ReservationDao {
 
+	/**
+	 * <h2> sessionFactory</h2>
+	 * <p>
+	 * sessionFactory
+	 * </p>
+	 */
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	/**
+	 * <h2> getAllReservationList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Reservation> getAllReservationList() {
@@ -32,6 +55,15 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.getResultList();
 	}
 
+	/**
+	 * <h2> getReservationById </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param reservationid
+	 * @return
+	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Reservation getReservationById(int reservationid) {
@@ -42,18 +74,43 @@ public class ReservationDaoImpl implements ReservationDao {
 		return rev;
 	}
 
+	/**
+	 * <h2> updateReservation </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param resv
+	 */
 	@Override
 	public void updateReservation(Reservation resv) {
 
 		sessionFactory.getCurrentSession().update(resv);
 	}
 
+	/**
+	 * <h2> updateReport </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param report
+	 */
 	@Override
 	public void updateReport(TransactionReport report) {
 		sessionFactory.getCurrentSession().update(report);
 
 	}
 
+	/**
+	 * <h2> getReportById </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param reservation_id
+	 * @return
+	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public TransactionReport getReportById(int reservation_id) {
@@ -64,6 +121,14 @@ public class ReservationDaoImpl implements ReservationDao {
 		return report;
 	}
 
+	/**
+	 * <h2> getAllReportList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<TransactionReport> getAllReportList() {
@@ -72,6 +137,14 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.getResultList();
 	}
 
+	/**
+	 * <h2> getCustomerList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Customer> getCustomerList() {
@@ -80,6 +153,14 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.getResultList();
 	}
 
+	/**
+	 * <h2> getBusList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Bus> getBusList() {
@@ -89,6 +170,15 @@ public class ReservationDaoImpl implements ReservationDao {
 	}
 
 
+	/**
+	 * <h2> getSeatByBusId </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param busid
+	 * @return
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Seat> getSeatByBusId(int busid) {
@@ -98,6 +188,15 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.getResultList();
 	}
 
+	/**
+	 * <h2> getDestinationByBusId </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param busid
+	 * @return
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<BusDestination> getDestinationByBusId(int busid) {

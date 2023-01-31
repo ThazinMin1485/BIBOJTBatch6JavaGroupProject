@@ -57,8 +57,9 @@ public class MyUserDetailsService implements UserDetailsService{
         System.out.println("---customer found----");
         System.out.println("---customer found----" + customerDto.getEmail());
         System.out.println("---customer found----" + customerDto.getPassword());
+        System.out.println("---customer found----"+customerDto.getType());
 
-        UserDetails user = new User(customerDto.getEmail(), customerDto.getPassword(), authorities(customerDto.getEmail()));
+        UserDetails user = new User(customerDto.getEmail(), customerDto.getPassword(), authorities(customerDto.getType()));
         return user;
     }
 

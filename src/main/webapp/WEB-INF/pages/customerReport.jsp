@@ -7,7 +7,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>' />
+
+<link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
+	<link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>' />
 <title>Insert title here</title>
 </head>
 <body>

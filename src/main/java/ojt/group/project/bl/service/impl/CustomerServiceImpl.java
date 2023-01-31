@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.service.CustomerService;
-import ojt.group.project.crud.web.form.LoginForm;
-import ojt.group.project.crud.web.form.RegisterForm;
 import ojt.group.project.persistence.dao.CustomerDao;
 import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Login;
+import ojt.group.project.web.form.LoginForm;
+import ojt.group.project.web.form.RegisterForm;
 
 /**
  * <h2> CustomerServiceImpl Class</h2>
@@ -69,6 +69,12 @@ public class CustomerServiceImpl  implements CustomerService{
         cus.setPassword(passwordEncoder.encode(regForm.getPassword()));
         cus.setCreatedat(new Date());
         customerDao.addCustomer(cus);
+    }
+    
+    @Override
+    public Customer doGetCustomerByEmail(String email) {
+    	Customer customer = this.customerDao.dbGetCustomerByEmail(email);
+    	return customer;
     }
     
     /**

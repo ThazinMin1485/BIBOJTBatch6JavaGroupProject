@@ -2,8 +2,8 @@ package ojt.group.project.persistence.dao;
 
 import java.util.List;
 
-import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.persistence.entity.Customer;
+import ojt.group.project.web.form.LoginForm;
 /**
  * <h2> CustomerDao Class</h2>
  * <p>
@@ -24,5 +24,7 @@ public interface CustomerDao {
     public Customer findByEmail(String email);
     
     //Login
-    public void login(LoginForm loginForm);    
+    public void login(LoginForm loginForm);
+
+	public Customer dbGetCustomerByEmail(String email);    
 }

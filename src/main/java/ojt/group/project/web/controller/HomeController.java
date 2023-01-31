@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ojt.group.project.crud.web.form.ContactUsForm;
-import ojt.group.project.crud.web.form.LoginForm;
-import ojt.group.project.crud.web.form.RegisterForm;
+import ojt.group.project.web.form.ContactUsForm;
+import ojt.group.project.web.form.LoginForm;
+import ojt.group.project.web.form.RegisterForm;
 
 /**
  * <h2> HomeController Class</h2>
