@@ -33,7 +33,8 @@
        
         <form:input type="reservationid" path="reservationid" value="${seat.reservationid}" id="reservationid"
         			 name="reservationid" hidden="hidden" /><br><br>
-        
+        <form:input type="delflag" path="delflag" value="${seat.delflag}" id="delflag"
+        			 name="delflag" hidden="hidden" />
     <button type="submit" class="edit-btn">Submit</button>
     
   </form:form>

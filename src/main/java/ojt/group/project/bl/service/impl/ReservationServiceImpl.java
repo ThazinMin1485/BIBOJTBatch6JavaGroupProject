@@ -18,6 +18,7 @@ import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.persistence.dao.ReservationDao;
+import ojt.group.project.persistence.dao.SeatDao;
 import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.BusDestination;
 import ojt.group.project.persistence.entity.Customer;
@@ -32,6 +33,9 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Autowired
 	private ReservationDao resDao;
+	
+	@Autowired
+	private SeatDao seatDao;
 
 	@Override
 	public List<ReservationDto> getAllReservationList() {
@@ -204,4 +208,11 @@ public class ReservationServiceImpl implements ReservationService {
 		return dto;
 	}
 
+	@Override
+	public void setSeatByNo(int seatno) {
+
+		Seat s=resDao.getSeatByNo(seatno);
+		s.setDelflag(true);
+		seatDao.updateSeat(s);
+	}
 }

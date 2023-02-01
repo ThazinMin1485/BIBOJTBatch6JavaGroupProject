@@ -1,23 +1,31 @@
-@charset "ISO-8859-1";
-
-.bookingPage .booking .column.seatbox {
-	width: 100px;
+@charset "UTF-8";
+/* Edit Bus */
+label{
+  color: #6A6C89;
+  font-size: 20px;
+}
+h1{
+  color: #003081;
+  font-size: 44px;
+  text-align: center;
+  padding-top: 20px;
+}
+.edit-btn{
+  color: #ffffff;
+  background-color: #484C8D;
+  padding: 5px 30px;
+  border-color: transparent;
+}
+input{
+  padding: 5px 40px;
+  border-color: transparent;
 }
 
-.bookingPage .booking .column.seatbox .form-check-label {
-	float: left;
-	width: 40px;
+.editbus,
+.editseat{
+	background-color: #7FB3D5;
 }
-
-.bookingPage .booking .column.seatbox .form-check-label:nth-child(2n) {
-	margin-right: 0px;
-}
-
-.bookingPage .booking .column {
-	float: left;
-	margin-right: 30px;
-}
-
-.bookingPage .booking .column.destination-column{
-	margin-top:150px;
+.edit{
+	margin-left: 40%;
+	padding-bottom: 30px;
 }

@@ -27,7 +27,7 @@
 					<c:forEach var="s" items="${seat }">
 						<label class="form-check-label" for="${s.seatid}"> <input
 							type="checkbox" class="form-check-input" id="${s.seatid}"
-							name="${s.seatno}" value="${s.seatno}"> ${s.seatno}
+							name="seatno" value="${s.seatno}"> ${s.seatno}
 						</label>
 					</c:forEach>
 				</div>
@@ -44,9 +44,15 @@
 							<th>Total Amount</th>
 						</tr>
 						<tr>
-							<td>${destination.departtime }</td>
-							<td>${destination.departlocation }</td>
-							<td>${destination.destinationlocation }</td>
+							<td><input type="text" value="${destination.departtime }"
+								id="departtime" name="departtime" readonly="readonly"></td>
+							<td><input type="text"
+								value="${destination.departlocation }" id="departlocation"
+								name="departlocation" readonly="readonly"></td>
+							<td><input type="text"
+								value="${destination.destinationlocation }"
+								id="destinationlocation" name="destinationlocation"
+								readonly="readonly"></td>
 							<td id="price">${destination.unitprice }</td>
 							<td id="selected-number"></td>
 							<td id="total-amount"></td>

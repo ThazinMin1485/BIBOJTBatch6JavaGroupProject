@@ -51,24 +51,3 @@
 			</c:forEach>
 		</table>
 	</div>
-	<div class="container secondcontent">
-		<h2 class="header">Report Data</h2>
-		<table class="table table-bordered table-hover">
-			<tr>
-				<th>Report Id</th>
-				<th>Customer Id</th>
-				<th>Payment Id</th>
-				<th>Report Date</th>
-				<th>Reservation Id</th>
-			</tr>
-			<c:forEach var="rep" items="${report }">
-				<tr>
-					<td>${rep.reportid }</td>
-					<td>${rep.customerid }</td>
-					<td>${rep.paymentid }</td>
-					<td>${rep.reportdate }</td>
-					<td>${rep.reservationid }</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>

@@ -92,7 +92,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Seat> getSeatByBusId(int busid) {
-		String q = "SELECT s from Seat s WHERE s.busid=:busid";
+		String q = "SELECT s from Seat s WHERE s.busid=:busid AND s.delflag=0";
 		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
 		query.setParameter("busid", busid);
 		return query.getResultList();
@@ -107,5 +107,22 @@ public class ReservationDaoImpl implements ReservationDao {
 		BusDestination b=(BusDestination) query.uniqueResult();
 		return b;
 	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	public Seat getSeatByNo(int seatno) {
+		String q = "SELECT s from Seat s WHERE s.seatno=:seatno";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("seatno", seatno);
+		Seat seat=(Seat) query.uniqueResult();
+		return seat;
+	}
+
+	@Override
+	public void addReservation(Reservation resv) {
+
+		sessionFactory.getCurrentSession().save(resv);
+	}
+
 
 }

@@ -2,6 +2,8 @@ package ojt.group.project.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,6 @@ import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
 import ojt.group.project.bl.dto.SeatDto;
-import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.web.form.ReservationForm;
 
@@ -31,9 +32,7 @@ public class AdminController {
 	public ModelAndView viewReport() {
 		ModelAndView report = new ModelAndView("reservation");
 		List<ReservationDto> resList = service.getAllReservationList();
-		List<TransactionReportDto> reportList = service.getAllReportList();
 		report.addObject("reservation", resList);
-		report.addObject("report", reportList);
 		return report;
 	}
 
@@ -75,7 +74,7 @@ public class AdminController {
 		return report;
 	}
 
-	@GetMapping("/selectBus/{busId}")
+	@RequestMapping(value = { "/selectBus/{busId}" }, method = RequestMethod.GET)
 	public String bookingPage(@PathVariable(value = "busId") int busId, Model m) {
 		List<SeatDto> st = service.getSeatByBusId(busId);
 		BusDestinationDto des = service.getBusDestinationBusId(busId);
@@ -84,4 +83,12 @@ public class AdminController {
 		return "booking";
 
 	}
+
+	@RequestMapping(value = { "/booking" }, method = RequestMethod.POST)
+	public String addBooking(HttpServletRequest request, @ModelAttribute("booking") SeatDto seat,
+			@ModelAttribute("booking") BusDestinationDto bus) {
+		service.setSeatByNo(seat.getSeatno());
+		return "redirect:/busRoute";
+	}
+
 }
