@@ -1,4 +1,4 @@
-package ojt.group.project.crud.web.form;
+package ojt.group.project.web.form;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ojt.group.project.persistence.entity.Login;
 
 /**
  * <h2> LoginForm Class</h2>
@@ -50,5 +51,9 @@ public class LoginForm {
     public LoginForm(LoginForm login) {
         this.email=login.getEmail();
         this.password=login.getPassword();
+    }
+    public LoginForm(Login login) {
+    	this.email=login.getEmail();
+    	this.password=login.getPassword();
     }
 }

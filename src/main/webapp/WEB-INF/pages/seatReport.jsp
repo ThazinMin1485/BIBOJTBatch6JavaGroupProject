@@ -7,10 +7,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>' />
+
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
-
+<link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>' />
 <title>Insert title here</title>
 </head>
 <body>
@@ -33,7 +33,6 @@
 						<th scope="col">Seat_Number</th>
 						<th scope="col">Bus_Id</th>
 						<th scope="col">Bus_Number</th>
-						<th scope="col">Reservation_Id</th>
 						<th scope="col">Edit</th>
 						<th scope="col">Delete</th>
 					</tr>
@@ -45,7 +44,6 @@
 							<td>${seat.seatno}</td>
 							<td>${seat.busid}</td>
 							<td>${seat.busno}</td>
-							<td>${seat.reservationid}</td>
 							<td><a href="editSeat/${seat.seatid}" class="btn"> Edit
 							</a></td>
 							<td><a href="deleteSeat/${seat.seatid}" class="btn">

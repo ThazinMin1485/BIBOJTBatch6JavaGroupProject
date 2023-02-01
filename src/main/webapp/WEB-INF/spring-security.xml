@@ -8,7 +8,9 @@
     http://www.springframework.org/schema/security  
     http://www.springframework.org/schema/security/spring-security.xsd">
     <http auto-config="true" use-expressions="true">
-     <intercept-url pattern="/busReport" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+     <intercept-url pattern="/busReport" access="hasRole('ROLE_ADMIN')" />
+     <intercept-url pattern="/editBus" access="hasRole('ROLE_ADMIN')" />
+     <intercept-url pattern="/contactus" access="hasRole('ROLE_USER')" />
         <form-login login-page="/login"
             login-processing-url="/login" username-parameter="username"
             password-parameter="password" default-target-url="/" />

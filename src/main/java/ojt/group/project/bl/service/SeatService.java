@@ -3,8 +3,8 @@ package ojt.group.project.bl.service;
 import java.util.List;
 
 import ojt.group.project.bl.dto.SeatDto;
-import ojt.group.project.crud.web.form.SeatForm;
 import ojt.group.project.persistence.entity.Seat;
+import ojt.group.project.web.form.SeatForm;
 
 /**
  * <h2> SeatService Class</h2>

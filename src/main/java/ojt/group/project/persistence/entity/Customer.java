@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import ojt.group.project.crud.web.form.CreateCusForm;
+import ojt.group.project.web.form.CreateCusForm;
 
 /**
  * <h2> Customer Class</h2>
@@ -126,6 +126,9 @@ public class Customer implements Serializable{
      */
     @Column(name="confirmpassword")
     private String confirmpassword;
+    
+    @Column(name="type")
+    private Integer type;
     
     /**
      *<h2>createdat</h2>

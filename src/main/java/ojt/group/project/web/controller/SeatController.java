@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.service.SeatService;
-import ojt.group.project.crud.web.form.SeatForm;
 import ojt.group.project.persistence.entity.Seat;
+import ojt.group.project.web.form.SeatForm;
 
 /**
  * <h2> SeatController Class</h2>

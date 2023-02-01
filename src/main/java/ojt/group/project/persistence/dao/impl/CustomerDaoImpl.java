@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import ojt.group.project.crud.web.form.LoginForm;
 import ojt.group.project.persistence.dao.CustomerDao;
 import ojt.group.project.persistence.entity.Customer;
+import ojt.group.project.web.form.LoginForm;
 
 /**
  * <h2> CustomerDaoImpl Class</h2>
@@ -98,6 +98,15 @@ public class CustomerDaoImpl implements CustomerDao{
         query.setParameter("email", email);
         Customer cus = (Customer) query.uniqueResult();
         return cus;
+    }
+    
+    @SuppressWarnings("rawtypes")
+	public Customer dbGetCustomerByEmail(String email) { 	
+    	String cusQuery = "SELECT c FROM Customer c WHERE c.email = :email";
+    	  Query query = this.sessionFactory.getCurrentSession().createQuery(cusQuery);
+    	  query.setParameter("email", email);
+    	  Customer cus = (Customer) query.uniqueResult();
+    	  return cus;
     }
 }
 

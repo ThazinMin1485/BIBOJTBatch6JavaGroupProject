@@ -32,5 +32,6 @@ public class Login{
      * </p>
      */
     private String password;
+    
 }
 
