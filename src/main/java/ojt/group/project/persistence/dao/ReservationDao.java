@@ -112,7 +112,7 @@ public interface ReservationDao {
 	 * @return List<Seat>
 	 */
 	public List<Seat> getSeatByBusId(int busid);
-	
+
 	/**
 	 * <h2> getDestinationByBusId</h2>
 	 * <p>
@@ -123,5 +123,5 @@ public interface ReservationDao {
 	 * @return
 	 * @return List<BusDestination>
 	 */
-	public List<BusDestination> getDestinationByBusId(int busid);
+	public BusDestination getDestinationByBusId(int busid);
 }

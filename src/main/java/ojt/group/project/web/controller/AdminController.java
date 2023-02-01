@@ -53,14 +53,14 @@ public class AdminController {
 	 */
 	@RequestMapping(value = { "/reservation" })
 	public ModelAndView viewReport() {
-		ModelAndView report=new ModelAndView("reservation");
-		List<ReservationDto> resList=service.getAllReservationList();
-		List<TransactionReportDto> reportList=service.getAllReportList();
+		ModelAndView report = new ModelAndView("reservation");
+		List<ReservationDto> resList = service.getAllReservationList();
+		List<TransactionReportDto> reportList = service.getAllReportList();
 		report.addObject("reservation", resList);
 		report.addObject("report", reportList);
 		return report;
 	}
-	
+
 	/**
 	 * <h2> editReservationForm</h2>
 	 * <p>
@@ -73,12 +73,12 @@ public class AdminController {
 	 * @return String
 	 */
 	@GetMapping("/editReservation/{reservation_id}")
-	public String editReservationForm(@PathVariable(value="reservation_id") int reservation_id,Model m) {
-		ReservationForm resv=service.getReservationById(reservation_id);
+	public String editReservationForm(@PathVariable(value = "reservation_id") int reservation_id, Model m) {
+		ReservationForm resv = service.getReservationById(reservation_id);
 		System.out.println(resv);
 		m.addAttribute("reservation", resv);
 		return "editReservation";
-		
+
 	}
 	
 	/**
@@ -91,11 +91,10 @@ public class AdminController {
 	 * @return
 	 * @return String
 	 */
-	@RequestMapping(value={"/editReservation/updateReservation"},method=RequestMethod.POST)
-	public String updateReservation(@ModelAttribute ("updateReservation") ReservationForm resv) {
+	@RequestMapping(value = { "/editReservation/updateReservation" }, method = RequestMethod.POST)
+	public String updateReservation(@ModelAttribute("updateReservation") ReservationForm resv) {
 		service.updateReservation(resv);
 		return "redirect:/reservation";
-		
 	}
 	
 	/**
@@ -110,7 +109,7 @@ public class AdminController {
 	 * @return String
 	 */
 	@GetMapping("/deleteReservation/{reservation_id}")
-	public String deleteReservationById(@PathVariable(value="reservation_id") int id,Model m) {
+	public String deleteReservationById(@PathVariable(value = "reservation_id") int id, Model m) {
 		service.deleteReservationById(id);
 		return "redirect:/reservation";
 	}
@@ -126,8 +125,8 @@ public class AdminController {
 	 */
 	@RequestMapping(value = { "/adminPassenger" })
 	public ModelAndView viewPassenger() {
-		ModelAndView report=new ModelAndView("adminPassenger");
-		List<CustomerDto> cusList=service.getCustomerList();
+		ModelAndView report = new ModelAndView("adminPassenger");
+		List<CustomerDto> cusList = service.getCustomerList();
 		report.addObject("customer", cusList);
 		return report;
 	}
@@ -141,14 +140,15 @@ public class AdminController {
 	 * @return
 	 * @return ModelAndView
 	 */
+
 	@RequestMapping(value = { "/busRoute" })
 	public ModelAndView viewBusRoute() {
-		ModelAndView report=new ModelAndView("busRoute");
-		List<BusDto> busList=service.getBusList();
+		ModelAndView report = new ModelAndView("busRoute");
+		List<BusDto> busList = service.getBusList();
 		report.addObject("bus", busList);
 		return report;
 	}
-	
+
 	/**
 	 * <h2> bookingPage</h2>
 	 * <p>
@@ -161,12 +161,12 @@ public class AdminController {
 	 * @return String
 	 */
 	@GetMapping("/selectBus/{busId}")
-	public String bookingPage(@PathVariable(value="busId") int busId,Model m) {
-		List<SeatDto> st=service.getSeatByBusId(busId);
-		List<BusDestinationDto> des=service.getBusDestinationBusId(busId);
+	public String bookingPage(@PathVariable(value = "busId") int busId, Model m) {
+		List<SeatDto> st = service.getSeatByBusId(busId);
+		BusDestinationDto des = service.getBusDestinationBusId(busId);
 		m.addAttribute("seat", st);
 		m.addAttribute("destination", des);
 		return "booking";
-		
+
 	}
 }

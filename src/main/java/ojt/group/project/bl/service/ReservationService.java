@@ -101,7 +101,7 @@ public interface ReservationService {
 	 * @return List<SeatDto>
 	 */
 	public List<SeatDto> getSeatByBusId(int busid);
-		
+
 	/**
 	 * <h2> getBusDestinationBusId</h2>
 	 * <p>
@@ -112,5 +112,7 @@ public interface ReservationService {
 	 * @return
 	 * @return List<BusDestinationDto>
 	 */
-	public List<BusDestinationDto> getBusDestinationBusId(int busid);
+
+	public BusDestinationDto getBusDestinationBusId(int busid);
+
 }

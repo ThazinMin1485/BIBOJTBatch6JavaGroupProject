@@ -197,13 +197,14 @@ public class ReservationDaoImpl implements ReservationDao {
 	 * @param busid
 	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes" })
 	@Override
-	public List<BusDestination> getDestinationByBusId(int busid) {
+	public BusDestination getDestinationByBusId(int busid) {
 		String q = "SELECT b from BusDestination b WHERE b.busid=:busid";
 		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
 		query.setParameter("busid", busid);
-		return query.getResultList();
+		BusDestination b=(BusDestination) query.uniqueResult();
+		return b;
 	}
 
 }

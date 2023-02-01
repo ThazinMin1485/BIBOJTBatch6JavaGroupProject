@@ -8,10 +8,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Online Bus Ticket Booking System</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet">
-<script src="<c:url value="/resources/js/jquery-3.6.0.min.js" />"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+<link href='<c:url value="/resources/css/bootstrap.min.css" />' rel='stylesheet'>
+<link href='<c:url value="/resources/css/admin.css" />' rel='stylesheet'>
+<script src='<c:url value="/resources/js/jquery-3.6.0.min.js" />'></script>
+<script src='<c:url value="/resources/js/bootstrap.min.js" />'></script>
 
 </head>
 <body>
