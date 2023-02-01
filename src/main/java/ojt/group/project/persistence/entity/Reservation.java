@@ -120,7 +120,7 @@ public class Reservation implements Serializable{
      *</p> 
      */
     @Column(name="seat_amount")
-    private Double seatamount;
+    private Integer seatamount;
     
     /**
      *<h2>createdat</h2>

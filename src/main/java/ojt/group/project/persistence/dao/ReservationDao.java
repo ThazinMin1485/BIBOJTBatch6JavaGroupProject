@@ -125,8 +125,9 @@ public interface ReservationDao {
 	 */
 	public BusDestination getDestinationByBusId(int busid);
 	
-	public Seat getSeatByNo(int seatno);
+	public Seat getSeatById(int seatid);
 
-	public void addReservation(Reservation resv);
+	public Reservation addReservation(Reservation resv);
 	
+	public void updateSeat(Seat s);	
 }

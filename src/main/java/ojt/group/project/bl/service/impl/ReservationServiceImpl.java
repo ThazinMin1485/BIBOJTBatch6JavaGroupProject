@@ -18,7 +18,6 @@ import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.persistence.dao.ReservationDao;
-import ojt.group.project.persistence.dao.SeatDao;
 import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.BusDestination;
 import ojt.group.project.persistence.entity.Customer;
@@ -28,7 +27,7 @@ import ojt.group.project.persistence.entity.TransactionReport;
 import ojt.group.project.web.form.ReservationForm;
 
 /**
- * <h2> ReservationServiceImpl Class</h2>
+ * <h2>ReservationServiceImpl Class</h2>
  * <p>
  * Process for Displaying ReservationServiceImpl
  * </p>
@@ -41,19 +40,16 @@ import ojt.group.project.web.form.ReservationForm;
 public class ReservationServiceImpl implements ReservationService {
 
 	/**
-	 * <h2> resDao</h2>
+	 * <h2>resDao</h2>
 	 * <p>
 	 * resDao
 	 * </p>
 	 */
 	@Autowired
 	private ReservationDao resDao;
-	
-	@Autowired
-	private SeatDao seatDao;
 
 	/**
-	 * <h2> getAllReservationList </h2>
+	 * <h2>getAllReservationList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -73,7 +69,6 @@ public class ReservationServiceImpl implements ReservationService {
 			reserv.setDestinationlocation(res.getDestinationlocation());
 			reserv.setDeparttime(settoString(res.getDeparttime()));
 			reserv.setDelflag(res.getDelflag());
-			reserv.setUpdateat(settoString(res.getUpdateat()));
 			reserv.setReservationdate(settoString(res.getReservationdate()));
 			reserv.setUnitprice(res.getUnitprice());
 			reserv.setSeatamount(res.getSeatamount());
@@ -84,7 +79,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> getReservationById </h2>
+	 * <h2>getReservationById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -100,7 +95,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> updateReservation </h2>
+	 * <h2>updateReservation</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -134,9 +129,9 @@ public class ReservationServiceImpl implements ReservationService {
 		resDao.updateReservation(res);
 		resDao.updateReport(rep);
 	}
-	
+
 	/**
-	 * <h2> setDate</h2>
+	 * <h2>setDate</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -159,7 +154,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> currentDate</h2>
+	 * <h2>currentDate</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -173,7 +168,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> deleteReservationById </h2>
+	 * <h2>deleteReservationById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -192,7 +187,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> getAllReportList </h2>
+	 * <h2>getAllReportList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -219,7 +214,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> getCustomerList </h2>
+	 * <h2>getCustomerList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -249,7 +244,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> getBusList </h2>
+	 * <h2>getBusList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -276,7 +271,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> getSeatByBusId </h2>
+	 * <h2>getSeatByBusId</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -303,7 +298,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	/**
-	 * <h2> getBusDestinationBusId </h2>
+	 * <h2>getBusDestinationBusId</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -314,15 +309,38 @@ public class ReservationServiceImpl implements ReservationService {
 	@Override
 	public BusDestinationDto getBusDestinationBusId(int busid) {
 		BusDestination dest = resDao.getDestinationByBusId(busid);
-		BusDestinationDto dto=new BusDestinationDto(dest);
+		BusDestinationDto dto = new BusDestinationDto(dest);
 		return dto;
 	}
 
 	@Override
-	public void setSeatByNo(int seatno) {
+	public void addReservation(ReservationForm res) {
+		Reservation resv = new Reservation();
+		try {
+			resv.setBusid(res.getBusid());
+			resv.setCreatedat(currentDate());
+			resv.setDelflag(false);
+			resv.setDepartlocation(res.getDepartlocation());
+			resv.setDeparttime(setDate(res.getDeparttime()));
+			resv.setDestinationlocation(res.getDestinationlocation());
+			resv.setReservationdate(currentDate());
+			resv.setSeatamount(res.getChecks().size());
+			resv.setUnitprice(res.getUnitprice());
+			Reservation resvera = resDao.addReservation(resv);
+			System.out.println("CHECKED RESERVATION NO");
+			System.out.println(resvera.getReservationid());
 
-		Seat s=resDao.getSeatByNo(seatno);
-		s.setDelflag(true);
-		seatDao.updateSeat(s);
+			for (String s : res.getChecks()) {
+				System.out.println("CHECKED SEAT NO");
+				System.out.println(Integer.parseInt(s));
+				Seat seat=resDao.getSeatById(Integer.parseInt(s));
+				seat.setReservationid(resvera.getReservationid());
+				seat.setDelflag(true);
+				resDao.updateSeat(seat);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }

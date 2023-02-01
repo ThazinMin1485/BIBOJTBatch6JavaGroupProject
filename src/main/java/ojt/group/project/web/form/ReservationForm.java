@@ -1,6 +1,7 @@
 package ojt.group.project.web.form;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -83,7 +84,7 @@ public class ReservationForm {
      * seatamount
      * </p>
      */
-    private Double seatamount;
+    private Integer seatamount;
     /**
      * <h2> createdat</h2>
      * <p>
@@ -105,7 +106,7 @@ public class ReservationForm {
      * </p>
      */
     private Boolean delflag;
-
+    private List<String> checks;
     /**
      * <h2> Constructor for ReservationForm </h2>
      * <p>

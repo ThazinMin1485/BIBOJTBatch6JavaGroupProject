@@ -19,14 +19,14 @@
         <span class="header">Online Bus Ticket Booking System</span> 
       <h2 class="title">Login Page</h2>
       <div class="login">
-        <form:form action="login" modelAttribute="login" method="post">
+        <form:form action="login" method="post">
      
         <div class="">
-          <span>Email: </span> <form:input type="text" path="email" class="email"/><br>
-           <form:errors path="email" class="error" />
+          <span>UserName: </span> <input type="text" name="username" class="email"/><br>
+           <form:errors path="username" class="error" />
         </div> <br><br>
         <div class="">
-           <span>Password: </span><form:input type="password" path="password" class="password"/><br>
+           <span>Password: </span><input type="password" name="password" class="password"/><br>
             <form:errors path="password" class="error" />
         </div>
         <br><br>

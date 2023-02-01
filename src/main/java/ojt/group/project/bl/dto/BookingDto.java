@@ -25,7 +25,7 @@ public class BookingDto {
 	private Double unitprice;
 	private Integer reservation_id;
 	private Integer customer_id;
-	private Double seatamount;
+	private Integer seatamount;
 	private Double totalamount;
 
 	BookingDto(Seat seat,BusDestination bs) {

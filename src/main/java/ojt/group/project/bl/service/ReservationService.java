@@ -13,7 +13,7 @@ import ojt.group.project.web.form.ReservationForm;
 public interface ReservationService {
 
 	/**
-	 * <h2> getAllReservationList</h2>
+	 * <h2>getAllReservationList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -24,7 +24,7 @@ public interface ReservationService {
 	public List<ReservationDto> getAllReservationList();
 
 	/**
-	 * <h2> getReservationById</h2>
+	 * <h2>getReservationById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -34,9 +34,9 @@ public interface ReservationService {
 	 * @return ReservationForm
 	 */
 	public ReservationForm getReservationById(int reservation_id);
-	
+
 	/**
-	 * <h2> updateReservation</h2>
+	 * <h2>updateReservation</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -45,9 +45,9 @@ public interface ReservationService {
 	 * @return void
 	 */
 	public void updateReservation(ReservationForm resv);
-	
+
 	/**
-	 * <h2> deleteReservationById</h2>
+	 * <h2>deleteReservationById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -56,9 +56,9 @@ public interface ReservationService {
 	 * @return void
 	 */
 	public void deleteReservationById(int reservation_id);
-	
+
 	/**
-	 * <h2> getAllReportList</h2>
+	 * <h2>getAllReportList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -67,9 +67,9 @@ public interface ReservationService {
 	 * @return List<TransactionReportDto>
 	 */
 	public List<TransactionReportDto> getAllReportList();
-	
+
 	/**
-	 * <h2> getCustomerList</h2>
+	 * <h2>getCustomerList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -78,9 +78,9 @@ public interface ReservationService {
 	 * @return List<CustomerDto>
 	 */
 	public List<CustomerDto> getCustomerList();
-	
+
 	/**
-	 * <h2> getBusList</h2>
+	 * <h2>getBusList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -89,9 +89,9 @@ public interface ReservationService {
 	 * @return List<BusDto>
 	 */
 	public List<BusDto> getBusList();
-	
+
 	/**
-	 * <h2> getSeatByBusId</h2>
+	 * <h2>getSeatByBusId</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -103,7 +103,7 @@ public interface ReservationService {
 	public List<SeatDto> getSeatByBusId(int busid);
 
 	/**
-	 * <h2> getBusDestinationBusId</h2>
+	 * <h2>getBusDestinationBusId</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -114,9 +114,7 @@ public interface ReservationService {
 	 */
 
 	public BusDestinationDto getBusDestinationBusId(int busid);
-		
-	public void setSeatByNo(int seatno);
 
-
+	public void addReservation(ReservationForm res);
 
 }

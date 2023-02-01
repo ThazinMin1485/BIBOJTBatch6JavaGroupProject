@@ -209,18 +209,25 @@ public class ReservationDaoImpl implements ReservationDao {
 	
 	
 	@SuppressWarnings("rawtypes")
-	public Seat getSeatByNo(int seatno) {
-		String q = "SELECT s from Seat s WHERE s.seatno=:seatno";
+	public Seat getSeatById(int seatid){
+		String q = "SELECT s from Seat s WHERE s.seatid=:seatid";
 		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
-		query.setParameter("seatno", seatno);
+		query.setParameter("seatid", seatid);
 		Seat seat=(Seat) query.uniqueResult();
 		return seat;
 	}
 
 	@Override
-	public void addReservation(Reservation resv) {
+	public Reservation addReservation(Reservation resv) {
 
 		sessionFactory.getCurrentSession().save(resv);
+		return resv;
+	}
+
+	@Override
+	public void updateSeat(Seat s) {
+		sessionFactory.getCurrentSession().update(s);
+		
 	}
 
 

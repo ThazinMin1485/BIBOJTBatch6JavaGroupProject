@@ -13,7 +13,7 @@
 <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/css/booking.css" />"
+<link href="<c:url value="/resources/css/userBooking.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet">
 </head>
@@ -21,13 +21,13 @@
 	<div class="container booking">
 		<h1>Online Bus Ticket Booking System</h1>
 		<h2 class="header">Seat Numbers</h2>
-		<form:form action="booking" method="post">
+		<form:form action="addReservation" method="post">
 			<div class="clearfix">
 				<div class="column seatbox clearfix">
 					<c:forEach var="s" items="${seat }">
 						<label class="form-check-label" for="${s.seatid}"> <input
 							type="checkbox" class="form-check-input" id="${s.seatid}"
-							name="seatno" value="${s.seatno}"> ${s.seatno}
+							name="checks" value="${s.seatid}"> ${s.seatno}
 						</label>
 					</c:forEach>
 				</div>
@@ -54,6 +54,8 @@
 								id="destinationlocation" name="destinationlocation"
 								readonly="readonly"></td>
 							<td id="price">${destination.unitprice }</td>
+							<input type="text" value="${destination.unitprice }"
+								name="unitprice" hidden="hidden" >
 							<td id="selected-number"></td>
 							<td id="total-amount"></td>
 						</tr>

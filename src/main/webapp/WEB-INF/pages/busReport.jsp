@@ -14,9 +14,9 @@
 </head>
 <body>
 	<h1>Online Bus Ticket Booking System</h1>
-
 	<div class="container">
 		<div class="container">
+			<a href="bus" class="btn btn-outline-primary">Add Bus</a>
 			<c:if test="${not empty message}">
 				<div class="alert" role="alert">${message}
 					<button type="button" class="close" data-dismiss="alert"

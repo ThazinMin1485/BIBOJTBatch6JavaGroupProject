@@ -93,7 +93,7 @@ public class CustomerDaoImpl implements CustomerDao{
     @SuppressWarnings("rawtypes")
     public Customer findByEmail(String email) {
 
-        String userQuery = "SELECT e FROM BusTicketBooking e WHERE e.email = :email";
+        String userQuery = "SELECT e FROM Customer e WHERE e.email = :email";
         Query query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
         query.setParameter("email", email);
         Customer cus = (Customer) query.uniqueResult();

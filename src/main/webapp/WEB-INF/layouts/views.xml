@@ -23,4 +23,24 @@
 		<put-attribute name="body"
 			value="/WEB-INF/pages/busReport.jsp" />
 	</definition>
+	<definition name="busRoute" extends="template">
+		<put-attribute name="title" value="Bus - Route" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/busRoute.jsp" />
+	</definition>
+	<definition name="booking" extends="template">
+		<put-attribute name="title" value="Booking" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/booking.jsp" />
+	</definition>
+	<definition name="contactus" extends="template">
+		<put-attribute name="title" value="Contact Us" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/contactus.jsp" />
+	</definition>
+	<definition name="editBus" extends="template">
+		<put-attribute name="title" value="Edit Bus" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/editBus.jsp" />
+	</definition>
 </tiles-definitions>

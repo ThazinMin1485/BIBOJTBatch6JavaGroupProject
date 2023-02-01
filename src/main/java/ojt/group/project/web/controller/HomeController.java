@@ -30,8 +30,11 @@ public class HomeController {
      * @return String
      */
     @RequestMapping(value= {"/"})
-    public String viewHome() {
-        return "home";
+    public ModelAndView viewHome() {
+    	ModelAndView view =new ModelAndView("login");
+        LoginForm loginForm =new LoginForm();
+        view.addObject("login", loginForm);
+        return view;
     }
     
     /**

@@ -81,7 +81,7 @@ public class ReservationDto {
 	 * seatamount
 	 * </p>
 	 */
-	private Double seatamount;
+	private Integer seatamount;
 	/**
 	 * <h2> createdat</h2>
 	 * <p>
@@ -89,13 +89,7 @@ public class ReservationDto {
 	 * </p>
 	 */
 	private String createdat;
-	/**
-	 * <h2> updateat</h2>
-	 * <p>
-	 * updateat
-	 * </p>
-	 */
-	private String updateat;
+	
 	/**
 	 * <h2> delflag</h2>
 	 * <p>
@@ -119,7 +113,6 @@ public class ReservationDto {
 		this.destinationlocation=reserv.getDestinationlocation();
 		SimpleDateFormat formDate = new SimpleDateFormat ("dd-MM-yyyy");
     	this.departtime=formDate.format(reserv.getDeparttime());
-    	this.updateat=formDate.format(reserv.getUpdateat());
     	this.reservationdate=formDate.format(reserv.getReservationdate());
     	this.delflag=reserv.getDelflag();
     	this.unitprice=reserv.getUnitprice();

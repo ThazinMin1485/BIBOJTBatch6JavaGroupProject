@@ -23,7 +23,7 @@ import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.web.form.ReservationForm;
 
 /**
- * <h2> AdminController Class</h2>
+ * <h2>AdminController Class</h2>
  * <p>
  * Process for Displaying AdminController
  * </p>
@@ -35,16 +35,16 @@ import ojt.group.project.web.form.ReservationForm;
 public class AdminController {
 
 	/**
-	 * <h2> service</h2>
+	 * <h2>service</h2>
 	 * <p>
 	 * service
 	 * </p>
 	 */
 	@Autowired
 	private ReservationService service;
-	
+
 	/**
-	 * <h2> viewReport</h2>
+	 * <h2>viewReport</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -61,7 +61,7 @@ public class AdminController {
 	}
 
 	/**
-	 * <h2> editReservationForm</h2>
+	 * <h2>editReservationForm</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -79,9 +79,9 @@ public class AdminController {
 		return "editReservation";
 
 	}
-	
+
 	/**
-	 * <h2> updateReservation</h2>
+	 * <h2>updateReservation</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -95,9 +95,9 @@ public class AdminController {
 		service.updateReservation(resv);
 		return "redirect:/reservation";
 	}
-	
+
 	/**
-	 * <h2> deleteReservationById</h2>
+	 * <h2>deleteReservationById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -112,9 +112,9 @@ public class AdminController {
 		service.deleteReservationById(id);
 		return "redirect:/reservation";
 	}
-	
+
 	/**
-	 * <h2> viewPassenger</h2>
+	 * <h2>viewPassenger</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -129,9 +129,9 @@ public class AdminController {
 		report.addObject("customer", cusList);
 		return report;
 	}
-	
+
 	/**
-	 * <h2> viewBusRoute</h2>
+	 * <h2>viewBusRoute</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -148,10 +148,8 @@ public class AdminController {
 		return report;
 	}
 
-
-	
 	/**
-	 * <h2> bookingPage</h2>
+	 * <h2>bookingPage</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -171,10 +169,13 @@ public class AdminController {
 
 	}
 
-	@RequestMapping(value = { "/booking" }, method = RequestMethod.POST)
-	public String addBooking(HttpServletRequest request, @ModelAttribute("booking") SeatDto seat,
-			@ModelAttribute("booking") BusDestinationDto bus) {
-		service.setSeatByNo(seat.getSeatno());
+	@RequestMapping(value = { "/selectBus/addReservation" }, method = RequestMethod.POST)
+	public String addBooking(HttpServletRequest request, @ModelAttribute("reservation") ReservationForm resv) {
+		System.out.println("Hello");
+		System.out.println(resv.getChecks());
+		System.out.println(resv.getBusid());
+		System.out.println(resv.getUnitprice());
+		service.addReservation(resv);
 		return "redirect:/busRoute";
 	}
 

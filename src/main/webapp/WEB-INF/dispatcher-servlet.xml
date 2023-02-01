@@ -58,7 +58,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/busticketbooking" />
 		<property name="username" value="root" />
-		<property name="password" value="Sisterpyae@112487" />
+		<property name="password" value="exol1485" />
 	</bean>
 	<!-- hibernate config -->
 	<bean

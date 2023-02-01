@@ -71,21 +71,21 @@ public class CustomerController {
      * @return
      * @return String
      */
-    @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String login(@Valid @ModelAttribute("login") LoginForm login, BindingResult result) {
-    	Customer customer = this.customerService.doGetCustomerByEmail(login.getEmail());
-           if(result.hasErrors()) {
-               return "login";
-           }else {
-        	   if(login.getEmail()=="admin2023@gmail.com" || customer.getType()==1) {
-        		   customerService.login(login);
-                   return "redirect:/bus";
-        	   }else {
-        		   return "redirect:/reservation";
-        	   }
-           }
-        }
-    
+//    @RequestMapping(value="/login", method = RequestMethod.POST)
+//    public String login(@Valid @ModelAttribute("login") LoginForm login, BindingResult result) {
+//    	Customer customer = this.customerService.doGetCustomerByEmail(login.getEmail());
+//           if(result.hasErrors()) {
+//               return "login";
+//           }else {
+//        	   if(login.getEmail()=="admin2023@gmail.com" || customer.getType()==1) {
+//        		   customerService.login(login);
+//                   return "redirect:/bus";
+//        	   }else {
+//        		   return "redirect:/reservation";
+//        	   }
+//           }
+//        }
+//    
     /**
      * <h2> showRegister</h2>
      * <p>
