@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ojt.group.project.bl.dto.BusDto;
 import ojt.group.project.bl.service.BusService;
-import ojt.group.project.crud.web.form.BusForm;
 import ojt.group.project.persistence.entity.Bus;
+import ojt.group.project.web.form.BusForm;
 
 /**
  * <h2> BusController Class</h2>

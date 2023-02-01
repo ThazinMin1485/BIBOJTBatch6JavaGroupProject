@@ -32,6 +32,7 @@
         <form:input type="driverid" path="driverid"/><br><br>
      
       <button type="submit" class="sign">Submit</button>
+      <a href="seat">go to Seat Page</a>
       </div>
   </form:form>
   </div>

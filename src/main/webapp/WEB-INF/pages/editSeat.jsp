@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel='stylesheet' href='<c:url value="/resources/css/Booking.css"/>' />
+<link rel='stylesheet' href='<c:url value="/resources/css/bus.css"/>' />
 <title>Insert title here</title>
 </head>
 <body>
@@ -35,6 +35,7 @@
         			 name="reservationid" hidden="hidden" /><br><br>
         
     <button type="submit" class="edit-btn">Submit</button>
+    <a href="${pageContext.request.contextPath }/" class="back"> Back </a>
     
   </form:form>
   </div>

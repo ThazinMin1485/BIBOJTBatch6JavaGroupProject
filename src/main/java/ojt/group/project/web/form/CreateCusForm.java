@@ -1,4 +1,4 @@
-package ojt.group.project.crud.web.form;
+package ojt.group.project.web.form;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

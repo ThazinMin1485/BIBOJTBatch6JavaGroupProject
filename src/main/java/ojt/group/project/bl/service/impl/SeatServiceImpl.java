@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.service.SeatService;
-import ojt.group.project.crud.web.form.SeatForm;
 import ojt.group.project.persistence.dao.SeatDao;
 import ojt.group.project.persistence.entity.Seat;
+import ojt.group.project.web.form.SeatForm;
 
 /**
  * <h2> SeatServiceImpl Class</h2>

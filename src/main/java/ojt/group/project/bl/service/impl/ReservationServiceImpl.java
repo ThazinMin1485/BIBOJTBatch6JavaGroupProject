@@ -26,13 +26,36 @@ import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
 import ojt.group.project.web.form.ReservationForm;
 
+/**
+ * <h2> ReservationServiceImpl Class</h2>
+ * <p>
+ * Process for Displaying ReservationServiceImpl
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Transactional
 @Service
 public class ReservationServiceImpl implements ReservationService {
 
+	/**
+	 * <h2> resDao</h2>
+	 * <p>
+	 * resDao
+	 * </p>
+	 */
 	@Autowired
 	private ReservationDao resDao;
 
+	/**
+	 * <h2> getAllReservationList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@Override
 	public List<ReservationDto> getAllReservationList() {
 		List<Reservation> reser = resDao.getAllReservationList();
@@ -56,6 +79,15 @@ public class ReservationServiceImpl implements ReservationService {
 		return resList;
 	}
 
+	/**
+	 * <h2> getReservationById </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param reservation_id
+	 * @return
+	 */
 	@Override
 	public ReservationForm getReservationById(int reservation_id) {
 		Reservation resv = resDao.getReservationById(reservation_id);
@@ -63,6 +95,14 @@ public class ReservationServiceImpl implements ReservationService {
 		return resForm;
 	}
 
+	/**
+	 * <h2> updateReservation </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param resv
+	 */
 	@Override
 	public void updateReservation(ReservationForm resv) {
 		Reservation res = new Reservation();
@@ -90,7 +130,18 @@ public class ReservationServiceImpl implements ReservationService {
 		resDao.updateReservation(res);
 		resDao.updateReport(rep);
 	}
-
+	
+	/**
+	 * <h2> setDate</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @param date
+	 * @return
+	 * @throws ParseException
+	 * @return Date
+	 */
 	public Date setDate(String date) throws ParseException {
 		SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
 		Date da = formDate.parse(date);
@@ -103,11 +154,28 @@ public class ReservationServiceImpl implements ReservationService {
 		return da;
 	}
 
+	/**
+	 * <h2> currentDate</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @return
+	 * @return Date
+	 */
 	public Date currentDate() {
 		Date dat = new Date();
 		return dat;
 	}
 
+	/**
+	 * <h2> deleteReservationById </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param reservation_id
+	 */
 	@Override
 	public void deleteReservationById(int reservation_id) {
 		Reservation resv = resDao.getReservationById(reservation_id);
@@ -119,6 +187,14 @@ public class ReservationServiceImpl implements ReservationService {
 
 	}
 
+	/**
+	 * <h2> getAllReportList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@Override
 	public List<TransactionReportDto> getAllReportList() {
 		List<TransactionReport> report = resDao.getAllReportList();
@@ -138,6 +214,14 @@ public class ReservationServiceImpl implements ReservationService {
 		return reportList;
 	}
 
+	/**
+	 * <h2> getCustomerList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@Override
 	public List<CustomerDto> getCustomerList() {
 		List<Customer> cus = resDao.getCustomerList();
@@ -160,6 +244,14 @@ public class ReservationServiceImpl implements ReservationService {
 		return cusList;
 	}
 
+	/**
+	 * <h2> getBusList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@Override
 	public List<BusDto> getBusList() {
 		List<Bus> bus = resDao.getBusList();
@@ -179,6 +271,15 @@ public class ReservationServiceImpl implements ReservationService {
 		return busList;
 	}
 
+	/**
+	 * <h2> getSeatByBusId </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param busid
+	 * @return
+	 */
 	@Override
 	public List<SeatDto> getSeatByBusId(int busid) {
 		List<Seat> seat = resDao.getSeatByBusId(busid);
@@ -197,6 +298,15 @@ public class ReservationServiceImpl implements ReservationService {
 		return sList;
 	}
 
+	/**
+	 * <h2> getBusDestinationBusId </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param busid
+	 * @return
+	 */
 	@Override
 	public BusDestinationDto getBusDestinationBusId(int busid) {
 		BusDestination dest = resDao.getDestinationByBusId(busid);

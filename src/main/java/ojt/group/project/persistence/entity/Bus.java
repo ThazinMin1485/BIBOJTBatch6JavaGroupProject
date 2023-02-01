@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import ojt.group.project.crud.web.form.BusForm;
+import ojt.group.project.web.form.BusForm;
 
 /**
  * <h2> Bus Class</h2>

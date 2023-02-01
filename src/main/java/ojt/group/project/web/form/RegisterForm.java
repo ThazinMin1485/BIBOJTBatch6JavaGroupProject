@@ -1,4 +1,4 @@
-package ojt.group.project.crud.web.form;
+package ojt.group.project.web.form;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

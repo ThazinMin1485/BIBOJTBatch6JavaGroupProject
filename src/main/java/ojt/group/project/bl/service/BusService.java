@@ -5,8 +5,8 @@ import java.util.List;
 
 
 import ojt.group.project.bl.dto.BusDto;
-import ojt.group.project.crud.web.form.BusForm;
 import ojt.group.project.persistence.entity.Bus;
+import ojt.group.project.web.form.BusForm;
 
 /**
  * <h2> BusService Class</h2>

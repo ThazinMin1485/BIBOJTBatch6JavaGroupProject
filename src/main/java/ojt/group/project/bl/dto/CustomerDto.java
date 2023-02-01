@@ -86,6 +86,28 @@ public class CustomerDto {
      */
     private String confirmpassword;
     
+    private String type;
+    /**
+     * <h2> createdat</h2>
+     * <p>
+     * createdat
+     * </p>
+     */
+    private Date createdat;
+    /**
+     * <h2> updateat</h2>
+     * <p>
+     * updateat
+     * </p>
+     */
+    private Date updateat;
+    /**
+     * <h2> delflag</h2>
+     * <p>
+     * delflag
+     * </p>
+     */
+    private Boolean delflag;
     /**
      * <h2> Constructor for CustomerDto </h2>
      * <p>
@@ -93,9 +115,6 @@ public class CustomerDto {
      * </p>
      * @param cus
      */
-     private Date createdat;
-    private Date updateat;
-    private Boolean delflag;
     public CustomerDto(Customer cus) {
         if (cus == null) {
             cus = new Customer();

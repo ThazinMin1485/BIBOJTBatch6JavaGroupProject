@@ -21,12 +21,36 @@ import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
 import ojt.group.project.web.form.ReservationForm;
 
+/**
+ * <h2> AdminController Class</h2>
+ * <p>
+ * Process for Displaying AdminController
+ * </p>
+ * 
+ * @author PyaeSuMon
+ *
+ */
 @Controller
 public class AdminController {
 
+	/**
+	 * <h2> service</h2>
+	 * <p>
+	 * service
+	 * </p>
+	 */
 	@Autowired
 	private ReservationService service;
-
+	
+	/**
+	 * <h2> viewReport</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @return
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = { "/reservation" })
 	public ModelAndView viewReport() {
 		ModelAndView report = new ModelAndView("reservation");
@@ -37,6 +61,17 @@ public class AdminController {
 		return report;
 	}
 
+	/**
+	 * <h2> editReservationForm</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @param reservation_id
+	 * @param m
+	 * @return
+	 * @return String
+	 */
 	@GetMapping("/editReservation/{reservation_id}")
 	public String editReservationForm(@PathVariable(value = "reservation_id") int reservation_id, Model m) {
 		ReservationForm resv = service.getReservationById(reservation_id);
@@ -45,20 +80,49 @@ public class AdminController {
 		return "editReservation";
 
 	}
-
+	
+	/**
+	 * <h2> updateReservation</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @param resv
+	 * @return
+	 * @return String
+	 */
 	@RequestMapping(value = { "/editReservation/updateReservation" }, method = RequestMethod.POST)
 	public String updateReservation(@ModelAttribute("updateReservation") ReservationForm resv) {
 		service.updateReservation(resv);
 		return "redirect:/reservation";
-
 	}
-
+	
+	/**
+	 * <h2> deleteReservationById</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @param id
+	 * @param m
+	 * @return
+	 * @return String
+	 */
 	@GetMapping("/deleteReservation/{reservation_id}")
 	public String deleteReservationById(@PathVariable(value = "reservation_id") int id, Model m) {
 		service.deleteReservationById(id);
 		return "redirect:/reservation";
 	}
-
+	
+	/**
+	 * <h2> viewPassenger</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @return
+	 * @return ModelAndView
+	 */
 	@RequestMapping(value = { "/adminPassenger" })
 	public ModelAndView viewPassenger() {
 		ModelAndView report = new ModelAndView("adminPassenger");
@@ -66,6 +130,16 @@ public class AdminController {
 		report.addObject("customer", cusList);
 		return report;
 	}
+	
+	/**
+	 * <h2> viewBusRoute</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @return
+	 * @return ModelAndView
+	 */
 
 	@RequestMapping(value = { "/busRoute" })
 	public ModelAndView viewBusRoute() {
@@ -75,6 +149,17 @@ public class AdminController {
 		return report;
 	}
 
+	/**
+	 * <h2> bookingPage</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 *
+	 * @param busId
+	 * @param m
+	 * @return
+	 * @return String
+	 */
 	@GetMapping("/selectBus/{busId}")
 	public String bookingPage(@PathVariable(value = "busId") int busId, Model m) {
 		List<SeatDto> st = service.getSeatByBusId(busId);

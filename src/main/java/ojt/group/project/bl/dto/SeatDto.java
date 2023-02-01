@@ -58,8 +58,26 @@ public class SeatDto {
 	 */
 	private Integer reservationid;
 
+	/**
+	 * <h2> createdat</h2>
+	 * <p>
+	 * createdat
+	 * </p>
+	 */
 	private Date createdat;
+	/**
+	 * <h2> delflag</h2>
+	 * <p>
+	 * delflag
+	 * </p>
+	 */
 	private Boolean delflag;
+	/**
+	 * <h2> updateat</h2>
+	 * <p>
+	 * updateat
+	 * </p>
+	 */
 	private Date updateat;
 
 	/**
