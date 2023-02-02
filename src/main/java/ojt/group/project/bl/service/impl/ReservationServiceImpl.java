@@ -112,29 +112,23 @@ public class ReservationServiceImpl implements ReservationService {
 	@Override
 	public void updateReservation(ReservationForm resv) {
 		Reservation res = new Reservation();
-		TransactionReport rep = resDao.getReportById(resv.getReservationid());
 		try {
 			res.setBusid(resv.getBusid());
 			res.setCustomerid(resv.getCustomerid());
-			rep.setCustomerid(resv.getCustomerid());
 			res.setReservationid(resv.getReservationid());
 			res.setDepartlocation(resv.getDepartlocation());
 			res.setDestinationlocation(resv.getDestinationlocation());
 			res.setSeatamount(resv.getSeatamount());
 			res.setUnitprice(resv.getUnitprice());
 			res.setCreatedat(setDate(resv.getCreatedat()));
-			rep.setCreatedat(setDate(resv.getCreatedat()));
 			res.setDeparttime(setDate(resv.getDeparttime()));
 			res.setDelflag(resv.getDelflag());
-			rep.setDelflag(resv.getDelflag());
 			res.setUpdateat(currentDate());
-			rep.setUpdateat(currentDate());
 			res.setReservationdate(setDate(resv.getReservationdate()));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		resDao.updateReservation(res);
-		resDao.updateReport(rep);
 	}
 
 	/**
@@ -339,6 +333,7 @@ public class ReservationServiceImpl implements ReservationService {
 			resv.setDeparttime(setDate(res.getDeparttime()));
 			resv.setDestinationlocation(res.getDestinationlocation());
 			resv.setReservationdate(currentDate());
+			resv.setUpdateat(currentDate());;
 			resv.setSeatamount(res.getChecks().size());
 			resv.setCustomerid(cus.getCustomerid());
 			resv.setUnitprice(res.getUnitprice());
