@@ -8,6 +8,8 @@ import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
 import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
+import ojt.group.project.persistence.entity.BusDestination;
+import ojt.group.project.web.form.BusDestinationForm;
 import ojt.group.project.web.form.ReservationForm;
 
 public interface ReservationService {
@@ -116,5 +118,8 @@ public interface ReservationService {
 	public BusDestinationDto getBusDestinationBusId(int busid);
 
 	public void addReservation(ReservationForm res);
+	
+	public void addBusDestination(BusDestinationForm bus);
+
 
 }

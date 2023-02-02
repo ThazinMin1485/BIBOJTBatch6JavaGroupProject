@@ -230,5 +230,10 @@ public class ReservationDaoImpl implements ReservationDao {
 		
 	}
 
+	@Override
+	public void addBusDestination(BusDestination bus) {
+		sessionFactory.getCurrentSession().save(bus);
+	}
+
 
 }

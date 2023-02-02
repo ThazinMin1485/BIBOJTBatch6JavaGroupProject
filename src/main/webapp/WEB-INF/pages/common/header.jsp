@@ -17,19 +17,19 @@
 			<div class="navbar">
 				<ul class="navgation clearfix">
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<li><a href="/BusTicketBookingSystem/reservation">Reservation</a></li>
+						<li><a href="${pageContext.request.contextPath}/reservation">Reservation</a></li>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<li><a href="/BusTicketBookingSystem/busReport">Bus</a></li>
+						<li><a href="${pageContext.request.contextPath}/busReport">Bus</a></li>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<li><a href="/BusTicketBookingSystem/adminPassenger">Passenger</a></li>
+						<li><a href="${pageContext.request.contextPath}/adminPassenger">Passenger</a></li>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_USER')">
-						<li><a href="/BusTicketBookingSystem/busRoute">BusRoute</a></li>
+						<li><a href="${pageContext.request.contextPath}/busRoute">BusRoute</a></li>
 					</sec:authorize>
-					<li><a href="/BusTicketBookingSystem/contactus">Contact Us</a></li>
-					<li><form:form action="logout" method="POST">
+					<li><a href="${pageContext.request.contextPath}/contactus">Contact Us</a></li>
+					<li><form:form action="${pageContext.request.contextPath}/logout" method="POST">
 							<input type="submit" value="Logout" class="btn btn-outline-secondary"/>
 						</form:form></li>
 

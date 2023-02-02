@@ -18,7 +18,8 @@
 		<div class="container">
 			<a href="bus" class="btn btn-outline-primary">Add Bus</a> <a
 				href="${pageContext.request.contextPath }/seat"
-				class="btn btn-outline-primary">Add Seat</a>
+				class="btn btn-outline-primary">Add Seat</a> <a
+				href="addDestination" class="btn btn-outline-primary">Add Destination</a>
 
 			<c:if test="${not empty message}">
 				<div class="alert" role="alert">${message}

@@ -27,6 +27,7 @@ import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.persistence.entity.Reservation;
 import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
+import ojt.group.project.web.form.BusDestinationForm;
 import ojt.group.project.web.form.ReservationForm;
 
 /**
@@ -355,6 +356,24 @@ public class ReservationServiceImpl implements ReservationService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	@Override
+	public void addBusDestination(BusDestinationForm bus) {
+		BusDestination des = new BusDestination();
+
+		des.setBusid(bus.getBusid());
+		des.setDepartlocation(bus.getDepartlocation());
+		try {
+			des.setDeparttime(setDate(bus.getDeparttime()));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		des.setDestinationlocation(bus.getDepartlocation());
+		des.setUnitprice(bus.getUnitprice());
+		resDao.addBusDestination(des);
 
 	}
 }

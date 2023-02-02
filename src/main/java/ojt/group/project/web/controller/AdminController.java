@@ -20,6 +20,8 @@ import ojt.group.project.bl.dto.CustomerDto;
 import ojt.group.project.bl.dto.ReservationDto;
 import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.service.ReservationService;
+import ojt.group.project.web.form.BusDestinationForm;
+import ojt.group.project.web.form.BusForm;
 import ojt.group.project.web.form.ReservationForm;
 
 /**
@@ -179,4 +181,16 @@ public class AdminController {
 		return "redirect:/busRoute";
 	}
 
+	@RequestMapping(value = { "/addDestination" },method = RequestMethod.GET)
+	public ModelAndView addDestination() {
+		ModelAndView view=new ModelAndView("addDestination");
+        BusDestinationForm destination =new BusDestinationForm();
+        view.addObject("destination",destination);
+        return view;
+	}
+	@RequestMapping(value = { "/addDestination" },method = RequestMethod.POST)
+	public String saveDestination(@ModelAttribute("destination") BusDestinationForm destination) {
+		service.addBusDestination(destination);
+		return "redirect:/busReport";
+	}
 }
