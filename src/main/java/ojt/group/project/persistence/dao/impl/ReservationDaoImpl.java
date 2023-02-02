@@ -235,5 +235,21 @@ public class ReservationDaoImpl implements ReservationDao {
 		sessionFactory.getCurrentSession().save(bus);
 	}
 
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Customer getCustomerById(int customerid) {
+		String q = "SELECT c FROM Customer c WHERE c.customerid=:customerid";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("customerid", customerid);
+		Customer cus = (Customer) query.uniqueResult();
+		return cus;
+	}
+
+	@Override
+	public void updateCustomer(Customer cus) {
+		sessionFactory.getCurrentSession().update(cus);
+		
+	}
+
 
 }

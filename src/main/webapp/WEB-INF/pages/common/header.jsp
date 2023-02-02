@@ -23,7 +23,7 @@
 						<li><a href="${pageContext.request.contextPath}/busReport">Bus</a></li>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<li><a href="${pageContext.request.contextPath}/adminPassenger">Passenger</a></li>
+						<li><a href="${pageContext.request.contextPath}/adminPassenger">UserList</a></li>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_USER')">
 						<li><a href="${pageContext.request.contextPath}/busRoute">BusRoute</a></li>

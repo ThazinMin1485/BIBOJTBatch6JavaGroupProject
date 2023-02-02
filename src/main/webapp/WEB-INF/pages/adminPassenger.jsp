@@ -18,7 +18,7 @@
 <body>
 	<h1>Online Bus Ticket Booking System</h1>
 	<div class="container">
-		<h2>Passenger Data</h2>
+		<h2>User Data</h2>
 		<table class="table table-bordered table-hover">
 			<tr>
 				<th>Customer Id</th>
@@ -29,6 +29,8 @@
 				<th>Gender</th>
 				<th>NRC</th>
 				<th>Phone NO</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 			<c:forEach var="c" items="${customer }">
 				<tr>
@@ -40,6 +42,10 @@
 					<td>${c.gender }</td>
 					<td>${c.nrc }
 					<td>${c.ph_no }</td>
+					<td><a href="editCustomer/${c.id}"
+						class="btn btn-outline-warning">Edit</a></td>
+					<td><a href="deleteCustomer/${c.id}"
+						class="btn btn-outline-danger">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

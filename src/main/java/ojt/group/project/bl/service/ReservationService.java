@@ -9,7 +9,9 @@ import ojt.group.project.bl.dto.ReservationDto;
 import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.persistence.entity.BusDestination;
+import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.web.form.BusDestinationForm;
+import ojt.group.project.web.form.CreateCusForm;
 import ojt.group.project.web.form.ReservationForm;
 
 public interface ReservationService {
@@ -120,6 +122,13 @@ public interface ReservationService {
 	public void addReservation(ReservationForm res);
 	
 	public void addBusDestination(BusDestinationForm bus);
+	
+	public CreateCusForm getCustomerById(int customerid);
 
+	public void updateCustomer(CreateCusForm cus);
+	 
+	public void deleteCustomerById(int customerid);
+
+	
 
 }

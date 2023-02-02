@@ -28,6 +28,7 @@ import ojt.group.project.persistence.entity.Reservation;
 import ojt.group.project.persistence.entity.Seat;
 import ojt.group.project.persistence.entity.TransactionReport;
 import ojt.group.project.web.form.BusDestinationForm;
+import ojt.group.project.web.form.CreateCusForm;
 import ojt.group.project.web.form.ReservationForm;
 
 /**
@@ -375,5 +376,23 @@ public class ReservationServiceImpl implements ReservationService {
 		des.setUnitprice(bus.getUnitprice());
 		resDao.addBusDestination(des);
 
+	}
+
+	@Override
+	public CreateCusForm getCustomerById(int customerid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateCustomer(CreateCusForm cus) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCustomerById(int customerid) {
+		// TODO Auto-generated method stub
+		
 	}
 }

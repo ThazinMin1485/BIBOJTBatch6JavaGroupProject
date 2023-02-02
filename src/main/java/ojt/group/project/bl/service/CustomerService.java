@@ -8,7 +8,7 @@ import ojt.group.project.web.form.LoginForm;
 import ojt.group.project.web.form.RegisterForm;
 
 /**
- * <h2> CustomerService Class</h2>
+ * <h2>CustomerService Class</h2>
  * <p>
  * Process for Displaying CustomerService
  * </p>
@@ -17,20 +17,20 @@ import ojt.group.project.web.form.RegisterForm;
  *
  */
 public interface CustomerService {
-    // add customer
-    public void addCus(RegisterForm regForm);
+	// add customer
+	public void addCus(RegisterForm regForm);
 
-    // get all customer
-    public List<CustomerDto> getAllCus();
-    
-    // get customer by email
-    public CustomerDto findByEmail(String email);
-    
-    //Login
-    public void login(LoginForm loginForm);
-    
+	// get all customer
+	public List<CustomerDto> getAllCus();
+
+	// get customer by email
+	public CustomerDto findByEmail(String email);
+
+	// Login
+	public void login(LoginForm loginForm);
+
 	/**
-	 * <h2> doGetCustomerByEmail</h2>
+	 * <h2>doGetCustomerByEmail</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -40,5 +40,11 @@ public interface CustomerService {
 	 * @return Customer
 	 */
 	public Customer doGetCustomerByEmail(String email);
- 
+
+	public void updateCustomer(Customer cus);
+
+	public void deleteCustomer(int id);
+
+	public Customer getById(int id);
+
 }

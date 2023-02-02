@@ -25,9 +25,9 @@
         
 
         <form:label path="gender">Gender</form:label><br><br>
-        <form:radiobutton path="gender" name="gender-admin" value="1" checked="checked" class="radiobutton"/>             
+        <form:radiobutton path="gender" name="gender-admin" value="Male" checked="checked" class="radiobutton"/>             
         <form:label path="gender">Male</form:label>
-        <form:radiobutton path="gender" name="gender-admin" value="1" checked="checked" class="radiobutton"/>
+        <form:radiobutton path="gender" name="gender-admin" value="Female" checked="checked" class="radiobutton"/>
         <form:label path="gender">Female</form:label>
  <br><br><br>
 

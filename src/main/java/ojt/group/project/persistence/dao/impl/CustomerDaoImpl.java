@@ -13,7 +13,7 @@ import ojt.group.project.persistence.entity.Customer;
 import ojt.group.project.web.form.LoginForm;
 
 /**
- * <h2> CustomerDaoImpl Class</h2>
+ * <h2>CustomerDaoImpl Class</h2>
  * <p>
  * Process for Displaying CustomerDaoImpl
  * </p>
@@ -22,91 +22,106 @@ import ojt.group.project.web.form.LoginForm;
  *
  */
 @Repository
-public class CustomerDaoImpl implements CustomerDao{
-    /**
-     * <h2> hiberneteTemplate</h2>
-     * <p>
-     * hiberneteTemplate
-     * </p>
-     */
-    @Autowired
-    private HibernateTemplate hiberneteTemplate;
-    
-    /**
-     * <h2> sessionFactory</h2>
-     * <p>
-     * sessionFactory
-     * </p>
-     */
-    @Autowired
-    private SessionFactory sessionFactory;
-    
-    /**
-     * <h2> addCustomer </h2>
-     * <p>
-     * 
-     * </p>
-     * 
-     * @param cus
-     */
-    @Override
-    public void addCustomer(Customer cus) {
-        sessionFactory.getCurrentSession().save(cus);
-    }
-    
-    /**
-     * <h2> getAllCus </h2>
-     * <p>
-     * 
-     * </p>
-     * 
-     * @return
-     */
-    @Override
-    public List<Customer> getAllCus() {
-        return hiberneteTemplate.loadAll(Customer.class);
-    }
-    
-    /**
-     * <h2> login </h2>
-     * <p>
-     * 
-     * </p>
-     * 
-     * @param loginForm
-     */
-    @Override
-    //Login
-      public void login(LoginForm loginForm) {
-          sessionFactory.getCurrentSession().save(loginForm);
-      }
-    
-    /**
-     * <h2> findByEmail </h2>
-     * <p>
-     * 
-     * </p>
-     * 
-     * @param email
-     * @return
-     */
-    @SuppressWarnings("rawtypes")
-    public Customer findByEmail(String email) {
+public class CustomerDaoImpl implements CustomerDao {
+	/**
+	 * <h2>hiberneteTemplate</h2>
+	 * <p>
+	 * hiberneteTemplate
+	 * </p>
+	 */
+	@Autowired
+	private HibernateTemplate hiberneteTemplate;
 
-        String userQuery = "SELECT e FROM Customer e WHERE e.email = :email";
-        Query query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
-        query.setParameter("email", email);
-        Customer cus = (Customer) query.uniqueResult();
-        return cus;
-    }
-    
-    @SuppressWarnings("rawtypes")
-	public Customer dbGetCustomerByEmail(String email) { 	
-    	String cusQuery = "SELECT c FROM Customer c WHERE c.email = :email";
-    	  Query query = this.sessionFactory.getCurrentSession().createQuery(cusQuery);
-    	  query.setParameter("email", email);
-    	  Customer cus = (Customer) query.uniqueResult();
-    	  return cus;
-    }
+	/**
+	 * <h2>sessionFactory</h2>
+	 * <p>
+	 * sessionFactory
+	 * </p>
+	 */
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	/**
+	 * <h2>addCustomer</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param cus
+	 */
+	@Override
+	public void addCustomer(Customer cus) {
+		sessionFactory.getCurrentSession().save(cus);
+	}
+
+	/**
+	 * <h2>getAllCus</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
+	@Override
+	public List<Customer> getAllCus() {
+		return hiberneteTemplate.loadAll(Customer.class);
+	}
+
+	/**
+	 * <h2>login</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param loginForm
+	 */
+	@Override
+	// Login
+	public void login(LoginForm loginForm) {
+		sessionFactory.getCurrentSession().save(loginForm);
+	}
+
+	/**
+	 * <h2>findByEmail</h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param email
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	public Customer findByEmail(String email) {
+
+		String userQuery = "SELECT e FROM Customer e WHERE e.email = :email";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
+		query.setParameter("email", email);
+		Customer cus = (Customer) query.uniqueResult();
+		return cus;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public Customer dbGetCustomerByEmail(String email) {
+		String cusQuery = "SELECT c FROM Customer c WHERE c.email = :email";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(cusQuery);
+		query.setParameter("email", email);
+		Customer cus = (Customer) query.uniqueResult();
+		return cus;
+	}
+
+	@Override
+	public Customer getCustomerById(int id) {
+		Customer cus = hiberneteTemplate.get(Customer.class, id);
+		return cus;
+	}
+
+	@Override
+	public void updateCustomer(Customer cus) {
+		hiberneteTemplate.update(cus);
+	}
+
+	@Override
+	public void deleteCustomer(int id) {
+		hiberneteTemplate.delete(hiberneteTemplate.load(Customer.class, id));
+	}
 }
-

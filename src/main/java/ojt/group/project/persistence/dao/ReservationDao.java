@@ -12,7 +12,7 @@ import ojt.group.project.persistence.entity.TransactionReport;
 public interface ReservationDao {
 
 	/**
-	 * <h2> getAllReservationList</h2>
+	 * <h2>getAllReservationList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -21,9 +21,9 @@ public interface ReservationDao {
 	 * @return List<Reservation>
 	 */
 	public List<Reservation> getAllReservationList();
-	
+
 	/**
-	 * <h2> getReservationById</h2>
+	 * <h2>getReservationById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -33,9 +33,9 @@ public interface ReservationDao {
 	 * @return Reservation
 	 */
 	public Reservation getReservationById(int reservation_id);
-	
+
 	/**
-	 * <h2> updateReservation</h2>
+	 * <h2>updateReservation</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -44,9 +44,9 @@ public interface ReservationDao {
 	 * @return void
 	 */
 	public void updateReservation(Reservation resv);
-	
+
 	/**
-	 * <h2> updateReport</h2>
+	 * <h2>updateReport</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -55,9 +55,9 @@ public interface ReservationDao {
 	 * @return void
 	 */
 	public void updateReport(TransactionReport report);
-	
+
 	/**
-	 * <h2> getReportById</h2>
+	 * <h2>getReportById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -67,9 +67,9 @@ public interface ReservationDao {
 	 * @return TransactionReport
 	 */
 	public TransactionReport getReportById(int reservation_id);
-	
+
 	/**
-	 * <h2> getAllReportList</h2>
+	 * <h2>getAllReportList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -78,9 +78,9 @@ public interface ReservationDao {
 	 * @return List<TransactionReport>
 	 */
 	public List<TransactionReport> getAllReportList();
-	
+
 	/**
-	 * <h2> getCustomerList</h2>
+	 * <h2>getCustomerList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -89,9 +89,9 @@ public interface ReservationDao {
 	 * @return List<Customer>
 	 */
 	public List<Customer> getCustomerList();
-	
+
 	/**
-	 * <h2> getBusList</h2>
+	 * <h2>getBusList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -100,9 +100,9 @@ public interface ReservationDao {
 	 * @return List<Bus>
 	 */
 	public List<Bus> getBusList();
-		
+
 	/**
-	 * <h2> getSeatByBusId</h2>
+	 * <h2>getSeatByBusId</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -114,7 +114,7 @@ public interface ReservationDao {
 	public List<Seat> getSeatByBusId(int busid);
 
 	/**
-	 * <h2> getDestinationByBusId</h2>
+	 * <h2>getDestinationByBusId</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -124,12 +124,17 @@ public interface ReservationDao {
 	 * @return List<BusDestination>
 	 */
 	public BusDestination getDestinationByBusId(int busid);
-	
+
 	public void addBusDestination(BusDestination bus);
-	
+
 	public Seat getSeatById(int seatid);
 
 	public Reservation addReservation(Reservation resv);
-	
-	public void updateSeat(Seat s);	
+
+	public void updateSeat(Seat s);
+
+	public Customer getCustomerById(int customerid);
+
+	public void updateCustomer(Customer cus);
+
 }

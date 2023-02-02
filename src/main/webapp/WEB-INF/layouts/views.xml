@@ -43,5 +43,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/pages/seatReport.jsp" />
 	</definition>
-	
+	<definition name="editBus" extends="template">
+		<put-attribute name="title" value="Edit Bus" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/editBus.jsp" />
+	</definition>
+	<definition name="editCustomer" extends="template">
+		<put-attribute name="title" value="Edit Customer" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/editCustomer.jsp" />
+	</definition>
 </tiles-definitions>

@@ -8,13 +8,15 @@
 <meta charset="ISO-8859-1">
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
+<link href="<c:url value="/resources/css/admin.css" />" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>Online Bus Ticket Booking System</h1>
 	<div class="container">
 		<div class="container">
 			<div class="editbus">
-				<h1>Edit Bus Form</h1>
+				<h2>Edit Bus Form</h2>
 				<div class="edit">
 					<form:form action="updateBus" method="post"
 						modelAttribute="updateBus">
