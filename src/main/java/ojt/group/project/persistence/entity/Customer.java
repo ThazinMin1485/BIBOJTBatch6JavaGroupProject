@@ -128,7 +128,7 @@ public class Customer implements Serializable{
     private String confirmpassword;
     
     @Column(name="type")
-    private Integer type;
+    private String type;
     
     /**
      *<h2>createdat</h2>
@@ -185,5 +185,6 @@ public class Customer implements Serializable{
         this.email=cusForm.getEmail();
         this.password=cusForm.getPassword();
         this.confirmpassword=cusForm.getConfirmpassword();
+        this.type=cusForm.getType();
     }
 }

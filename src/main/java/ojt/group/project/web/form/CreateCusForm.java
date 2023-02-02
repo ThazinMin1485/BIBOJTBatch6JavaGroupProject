@@ -101,7 +101,8 @@ public class CreateCusForm {
      */
     @NotEmpty
     private String confirmpassword;
-    
+    private String type;
+
     /**
      * <h2> Constructor for CreateCusForm </h2>
      * <p>
@@ -120,5 +121,6 @@ public class CreateCusForm {
         this.email=cus.getEmail();
         this.password=cus.getPassword();
         this.confirmpassword=cus.getConfirmpassword();
+        this.type=cus.getType();
 }
 }

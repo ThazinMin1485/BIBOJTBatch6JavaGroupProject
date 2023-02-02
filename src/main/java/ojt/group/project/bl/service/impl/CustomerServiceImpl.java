@@ -68,6 +68,7 @@ public class CustomerServiceImpl  implements CustomerService{
         cus.setEmail(regForm.getEmail());
         cus.setPassword(passwordEncoder.encode(regForm.getPassword()));
         cus.setCreatedat(new Date());
+        cus.setType("0");
         customerDao.addCustomer(cus);
     }
     
@@ -100,6 +101,7 @@ public class CustomerServiceImpl  implements CustomerService{
             cusDto.setAddress(cus.getAddress());
             cusDto.setPh_no(cus.getPh_no());
             cusDto.setEmail(cus.getEmail());
+            cusDto.setType(cus.getType());
             customer.add(cusDto);
         }
         return customer;

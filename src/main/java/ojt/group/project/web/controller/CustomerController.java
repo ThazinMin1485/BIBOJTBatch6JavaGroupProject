@@ -51,14 +51,14 @@ public class CustomerController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
-    public ModelAndView showLogin() {
-        
-       ModelAndView view =new ModelAndView();
-       LoginForm login =new LoginForm();
-       view.addObject("login",login);
-        return view;
-    }
+//    @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
+//    public ModelAndView showLogin() {
+//        
+//       ModelAndView view =new ModelAndView();
+//       LoginForm login =new LoginForm();
+//       view.addObject("login",login);
+//        return view;
+//    }
  
     /**
      * <h2> login</h2>

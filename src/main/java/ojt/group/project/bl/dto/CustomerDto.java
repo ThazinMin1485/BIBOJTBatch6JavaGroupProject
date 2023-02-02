@@ -132,6 +132,7 @@ public class CustomerDto {
         this.createdat=cus.getCreatedat();
     	this.updateat=cus.getUpdateat();
     	this.delflag=cus.getDelflag();
+    	this.type=cus.getType();
 }
 
 }

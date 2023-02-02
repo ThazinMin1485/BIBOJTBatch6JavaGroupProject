@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +19,7 @@ import ojt.group.project.bl.dto.ReservationDto;
 import ojt.group.project.bl.dto.SeatDto;
 import ojt.group.project.bl.dto.TransactionReportDto;
 import ojt.group.project.bl.service.ReservationService;
+import ojt.group.project.persistence.dao.CustomerDao;
 import ojt.group.project.persistence.dao.ReservationDao;
 import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.BusDestination;
@@ -47,6 +50,8 @@ public class ReservationServiceImpl implements ReservationService {
 	 */
 	@Autowired
 	private ReservationDao resDao;
+	@Autowired
+	private CustomerDao customerDao;
 
 	/**
 	 * <h2>getAllReservationList</h2>
@@ -315,6 +320,14 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public void addReservation(ReservationForm res) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		String email = authentication.getName();
+		System.out.println("---email");
+		System.out.println(email);
+		Customer cus = customerDao.findByEmail(email);
+		System.out.println("The CUSTOMER ID IS");
+		System.out.println(cus.getCustomerid());
 		Reservation resv = new Reservation();
 		try {
 			resv.setBusid(res.getBusid());
@@ -325,6 +338,7 @@ public class ReservationServiceImpl implements ReservationService {
 			resv.setDestinationlocation(res.getDestinationlocation());
 			resv.setReservationdate(currentDate());
 			resv.setSeatamount(res.getChecks().size());
+			resv.setCustomerid(cus.getCustomerid());
 			resv.setUnitprice(res.getUnitprice());
 			Reservation resvera = resDao.addReservation(resv);
 			System.out.println("CHECKED RESERVATION NO");
@@ -333,7 +347,7 @@ public class ReservationServiceImpl implements ReservationService {
 			for (String s : res.getChecks()) {
 				System.out.println("CHECKED SEAT NO");
 				System.out.println(Integer.parseInt(s));
-				Seat seat=resDao.getSeatById(Integer.parseInt(s));
+				Seat seat = resDao.getSeatById(Integer.parseInt(s));
 				seat.setReservationid(resvera.getReservationid());
 				seat.setDelflag(true);
 				resDao.updateSeat(seat);
