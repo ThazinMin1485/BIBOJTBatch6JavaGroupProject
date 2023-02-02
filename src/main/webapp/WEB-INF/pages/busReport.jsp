@@ -16,7 +16,10 @@
 	<h1>Online Bus Ticket Booking System</h1>
 	<div class="container">
 		<div class="container">
-			<a href="bus" class="btn btn-outline-primary">Add Bus</a>
+			<a href="bus" class="btn btn-outline-primary">Add Bus</a> <a
+				href="${pageContext.request.contextPath }/seat"
+				class="btn btn-outline-primary">Add Seat</a>
+
 			<c:if test="${not empty message}">
 				<div class="alert" role="alert">${message}
 					<button type="button" class="close" data-dismiss="alert"
@@ -34,6 +37,7 @@
 						<th scope="col">Driver_ID</th>
 						<th scope="col">Edit</th>
 						<th scope="col">Delete</th>
+						<th scope="col">View Seats</th>
 					</tr>
 				</thead>
 				<tbody class="tbody">
@@ -46,6 +50,7 @@
 							<td><a href="editBus/${bus.busid}" class="btn"> Edit </a></td>
 							<td><a href="deleteBus/${bus.busid}" class="btn"> Delete
 							</a></td>
+							<td><a href="viewSeat/${bus.busid}" class="btn"> View </a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -30,7 +30,7 @@
 					</sec:authorize>
 					<li><a href="/BusTicketBookingSystem/contactus">Contact Us</a></li>
 					<li><form:form action="logout" method="POST">
-							<input type="submit" value="Logout" />
+							<input type="submit" value="Logout" class="btn btn-outline-secondary"/>
 						</form:form></li>
 
 				</ul>

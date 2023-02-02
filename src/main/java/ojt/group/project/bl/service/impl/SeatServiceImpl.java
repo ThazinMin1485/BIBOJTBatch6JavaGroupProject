@@ -122,4 +122,28 @@ public class SeatServiceImpl implements SeatService {
 	public void deleteSeat(int seatid) {
 		seatDao.deleteseat(seatid);
 	}
+
+	@Override
+	public List<SeatDto> getSeatByBusId(int busid) {
+		List<Seat> seat = seatDao.getSeatByBusId(busid);
+		List<SeatDto> sList = new ArrayList<SeatDto>();
+		for (Seat s : seat) {
+			SeatDto sd = new SeatDto(s);
+			sd.setBusid(s.getBusid());
+			sd.setBusno(s.getBusno());
+			sd.setCreatedat(currentDate());
+			sd.setDelflag(s.getDelflag());
+			sd.setSeatid(s.getSeatid());
+			sd.setSeatno(s.getSeatno());
+			sd.setUpdateat(currentDate());
+			sList.add(sd);
+		}
+		return sList;
+	}
+
+	public Date currentDate() {
+		Date dat = new Date();
+		return dat;
+	}
+
 }

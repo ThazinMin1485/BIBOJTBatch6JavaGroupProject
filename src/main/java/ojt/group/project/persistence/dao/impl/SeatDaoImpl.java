@@ -3,6 +3,7 @@ package ojt.group.project.persistence.dao.impl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,7 @@ import ojt.group.project.persistence.entity.Bus;
 import ojt.group.project.persistence.entity.Seat;
 
 /**
- * <h2> SeatDaoImpl Class</h2>
+ * <h2>SeatDaoImpl Class</h2>
  * <p>
  * Process for Displaying SeatDaoImpl
  * </p>
@@ -21,28 +22,28 @@ import ojt.group.project.persistence.entity.Seat;
  *
  */
 @Repository
-public class SeatDaoImpl implements SeatDao{
-	
+public class SeatDaoImpl implements SeatDao {
+
 	/**
-	 * <h2> hiberneteTemplate</h2>
+	 * <h2>hiberneteTemplate</h2>
 	 * <p>
 	 * hiberneteTemplate
 	 * </p>
 	 */
 	@Autowired
-    private HibernateTemplate hiberneteTemplate;
-    
-    /**
-     * <h2> sessionFactory</h2>
-     * <p>
-     * sessionFactory
-     * </p>
-     */
-    @Autowired
-    private SessionFactory sessionFactory;
-	
+	private HibernateTemplate hiberneteTemplate;
+
 	/**
-	 * <h2> addSeat </h2>
+	 * <h2>sessionFactory</h2>
+	 * <p>
+	 * sessionFactory
+	 * </p>
+	 */
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	/**
+	 * <h2>addSeat</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -55,7 +56,7 @@ public class SeatDaoImpl implements SeatDao{
 	}
 
 	/**
-	 * <h2> getAllSeat </h2>
+	 * <h2>getAllSeat</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -63,12 +64,12 @@ public class SeatDaoImpl implements SeatDao{
 	 * @return
 	 */
 	@Override
-    public List<Seat> getAllSeat(){
+	public List<Seat> getAllSeat() {
 		return hiberneteTemplate.loadAll(Seat.class);
-    }
+	}
 
 	/**
-	 * <h2> getSeatById </h2>
+	 * <h2>getSeatById</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -77,13 +78,13 @@ public class SeatDaoImpl implements SeatDao{
 	 * @return
 	 */
 	@Override
-    public Seat getSeatById(int seatid) {
+	public Seat getSeatById(int seatid) {
 		Seat seat = hiberneteTemplate.get(Seat.class, seatid);
-        return seat;
-    }
+		return seat;
+	}
 
 	/**
-	 * <h2> updateSeat </h2>
+	 * <h2>updateSeat</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -91,12 +92,12 @@ public class SeatDaoImpl implements SeatDao{
 	 * @param seat
 	 */
 	@Override
-    public void updateSeat(Seat seat) {
-		 hiberneteTemplate.update(seat);
-    }
+	public void updateSeat(Seat seat) {
+		hiberneteTemplate.update(seat);
+	}
 
 	/**
-	 * <h2> deleteseat </h2>
+	 * <h2>deleteseat</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -104,7 +105,16 @@ public class SeatDaoImpl implements SeatDao{
 	 * @param seatid
 	 */
 	@Override
-    public void deleteseat(int seatid) {
-		 hiberneteTemplate.delete(hiberneteTemplate.load(Seat.class, seatid));
-    }
+	public void deleteseat(int seatid) {
+		hiberneteTemplate.delete(hiberneteTemplate.load(Seat.class, seatid));
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public List<Seat> getSeatByBusId(int busid) {
+		String q = "SELECT s from Seat s WHERE s.busid=:busid";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(q);
+		query.setParameter("busid", busid);
+		return query.getResultList();
+	}
 }

@@ -36,7 +36,7 @@
         <form:input type="delflag" path="delflag" value="${seat.delflag}" id="delflag"
         			 name="delflag" hidden="hidden" />
     <button type="submit" class="edit-btn">Submit</button>
-    <a href="${pageContext.request.contextPath }/" class="back"> Back </a>
+    <a href="${pageContext.request.contextPath }/busReport" class="back"> Back </a>
     
   </form:form>
   </div>

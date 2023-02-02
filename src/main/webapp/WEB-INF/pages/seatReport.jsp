@@ -18,6 +18,7 @@
 
 	<div class="container">
 		<div class="container">
+
 			<c:if test="${not empty message}">
 				<div class="alert" role="alert">${message}
 					<button type="button" class="close" data-dismiss="alert"
@@ -33,26 +34,24 @@
 						<th scope="col">Seat_Number</th>
 						<th scope="col">Bus_Id</th>
 						<th scope="col">Bus_Number</th>
-						<th scope="col">Edit</th>
-						<th scope="col">Delete</th>
 					</tr>
 				</thead>
 				<tbody class="tbody">
-					<c:forEach var="seat" items="${list}">
+					<c:forEach var="seat" items="${seat}">
 						<tr>
 							<td>${seat.seatid}</td>
 							<td>${seat.seatno}</td>
 							<td>${seat.busid}</td>
 							<td>${seat.busno}</td>
-							<td><a href="editSeat/${seat.seatid}" class="btn"> Edit
-							</a></td>
-							<td><a href="deleteSeat/${seat.seatid}" class="btn">
-									Delete </a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	<div class="text-center">
+	<a href="${pageContext.request.contextPath }/busReport"
+		class="btn btn-outline-secondary back"> Back </a>
+		</div>
 </body>
 </html>

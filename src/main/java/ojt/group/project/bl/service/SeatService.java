@@ -30,4 +30,7 @@ public interface SeatService {
 
     // seat seat
     public void deleteSeat(int seatid);
+    
+	public List<SeatDto> getSeatByBusId(int busid);
+
 }
