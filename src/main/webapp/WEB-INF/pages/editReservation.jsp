@@ -57,16 +57,16 @@
 			<div class="row">
 				<div class="col">
 					<div class="form-group">
-						<input type="text" value="${reservation.delflag }"
-							id="delflag" name="delflag" hidden="hidden">
+						<input type="text" value="${reservation.delflag }" id="delflag"
+							name="delflag" hidden="hidden">
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
 					<div class="form-group">
-						<input type="text" value="${reservation.updateat }"
-							id="updateat" name="updateat" hidden="hidden">
+						<input type="text" value="${reservation.updateat }" id="updateat"
+							name="updateat" hidden="hidden">
 					</div>
 				</div>
 			</div>
@@ -129,6 +129,8 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary">Submit</button>
+			<a href="${pageContext.request.contextPath }/reservation"
+				class="btn btn-outline-primary"> Back </a>
 		</form:form>
 	</div>
 

@@ -8,6 +8,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>' />
+<link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body
@@ -19,36 +21,32 @@
 			<div class="bus">
 
 				<form:label path="busno">Bus number</form:label>
-				<br>
-				<br>
+				<br> <br>
 				<form:input type="busno" path="busno" class="inform" />
 				<br> <br>
 
 				<form:label path="busstatus">Bus Status</form:label>
-				<br>
-				<br>
+				<br> <br>
 				<form:input type="busstatus" path="busstatus" class="inform" />
 				<br>
 				<form:errors path="busstatus" class="error" />
 				<br>
 
 				<form:label path="busseats">Bus Seat</form:label>
+				<br> <br>
+				<form:input type="busseats" path="busseats" class="inform" />
 				<br>
+				<form:errors path="busseats" class="error" />
 				<br>
-				<form:input type="busseats" path="busseats" class="inform"  />
-					<br>
-					<form:errors path="busseats" class="error" />
-					<br>
 
-					<form:label path="driverid">Driver Id</form:label>
-					<br>
-					<br>
-					<form:input type="driverid" path="driverid" class="inform" />
-					<br>
-					<br>
+				<form:label path="driverid">Driver Id</form:label>
+				<br> <br>
+				<form:input type="driverid" path="driverid" class="inform" />
+				<br> <br>
 
-					<button type="submit" class="sign">Submit</button>
-					<a href="seat">go to Seat Page</a>
+				<button type="submit" class="sign">Submit</button>
+				<a href="${pageContext.request.contextPath }/busReport"
+					class="btn btn-outline-primary back"> Back </a>
 			</div>
 		</form:form>
 	</div>

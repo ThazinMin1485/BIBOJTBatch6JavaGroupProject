@@ -19,7 +19,8 @@
 
 	<div class="container">
 		<h2>Add Destination</h2>
-		<form:form action="addDestination" method="post" modelAttribute="destination">
+		<form:form action="addDestination" method="post"
+			modelAttribute="destination">
 			<div class="row">
 				<div class="col">
 					<div class="form-group">
@@ -42,7 +43,7 @@
 					<div class="form-group">
 						<label for="departlocation">Depart Location</label> <input
 							type="text" class="form-control" id="departlocation"
-							name="departlocation" >
+							name="departlocation">
 					</div>
 				</div>
 			</div>
@@ -66,6 +67,8 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary">Submit</button>
+			<a href="${pageContext.request.contextPath }/busReport"
+				class="btn btn-outline-primary"> Back </a>
 		</form:form>
 	</div>
 

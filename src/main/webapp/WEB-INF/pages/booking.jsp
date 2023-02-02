@@ -64,6 +64,8 @@
 			</div>
 			<div class="center">
 				<button type="submit" class="btn btn-outline-primary btnclass">Submit</button>
+				<a href="${pageContext.request.contextPath }/busRoute"
+						class="btn btn-outline-primary"> Back </a>
 			</div>
 		</form:form>
 	</div>
